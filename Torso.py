@@ -15,16 +15,23 @@ pwm.setPWMFreq(50)
 print "ServoMin = ", servoMin
 print "ServoMax = ", servoMax
 
-
-
 def headUp():
     pwm.setPWM(2, 0, servoMax)
 
 def headDown():
     pwm.setPWM(2, 0, servoMin)
 
-def headMid():
+def headMidY():
     pwm.setPWM(2, 0, servoMid)
+
+def headLeft():
+    pwm.setPWM(3, 0, servoMax)
+
+def headRight():
+    pwm.setPWM(3, 0, servoMin)
+
+def headMidX():
+    pwm.setPWM(3, 0, servoMid-25)
 
 def leanLeft():
     pwm.setPWM(0, 0, servoMax)
@@ -39,17 +46,22 @@ def leanCenter():
     pwm.setPWM(1, 0, servoMid)
 
 def initialize():
-    headMid()
+    headMidX()
+    headMidY()
     leanCenter()
 
 initialize()
 time.sleep(1)
 headUp()
-leanLeft()
+headLeft()
 time.sleep(1)
+leanLeft()
+headRight()
+time.sleep(1)
+headMidX()
 headDown()
 leanRight()
-time.sleep(2)
-headMid()
+time.sleep(1)
+headMidY()
 leanCenter()
 
