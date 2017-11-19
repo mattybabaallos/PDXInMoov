@@ -1,4 +1,12 @@
 #!/bin/python
+'''
+This module are Inmoov!
+
+Authors:
+    - Brett Creeley
+    - Matty Baba "Black Sheep" Allos
+    - Dai Ho
+'''
 from Head import Head
 from Torso import Torso
 

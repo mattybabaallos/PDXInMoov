@@ -1,4 +1,12 @@
 #!/bin/python
+'''
+This module holds Inmoov's Torso
+
+Authors:
+    - Brett Creeley
+    - Matty Baba "Black Sheep" Allos
+    - Dai Ho
+'''
 from Config import degrees_to_pulse, set_pwm
 
 class Torso(object):
