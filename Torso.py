@@ -13,8 +13,8 @@ class Torso(object):
     '''
     This class is used to control Inmoov's Torso.
     '''
-    MIN_DEGREE = 0    # Found from Calibrate_Servo.py -- part#: HS-805BB
-    MAX_DEGREE = 180  # Found from Calibrate_Servo.py -- part#: HS-805BB
+    MIN_DEGREE = -90  # Found from Calibrate_Servo.py -- part#: HS-805BB
+    MAX_DEGREE = 90   # Found from Calibrate_Servo.py -- part#: HS-805BB
     SERVO_MIN = 200   # Found from Calibrate_Servo.py -- part#: HS-805BB
     SERVO_MAX = 525   # Found from Calibrate_Servo.py -- part#: HS-805BB
 
@@ -35,11 +35,11 @@ class Torso(object):
     def lean(self, degrees):
         '''
         Make Inmoov lean based on the specified degree.
-        - 0 degrees leans Inmoov all the way right.
-        - 90 degrees centers Invmoov's Torso.
-        - 180 degrees leans Inmoov all the way left.
+        - -90 degrees leans Inmoov all the way right.
+        -   0 degrees centers Invmoov's Torso.
+        -  90 degrees leans Inmoov all the way left.
         '''
-        pulse = degrees_to_pulse(degrees, self.MIN_DEGREE, self.MAX_DEGREE,
+        pulse = degrees_to_pulse(degrees, self.MIN_DEGREE, s0lf.MAX_DEGREE,
                                  self.SERVO_MIN, self.SERVO_MAX)
         set_pwm(self.l_channel, 0, pulse)
         set_pwm(self.r_channel, 0, pulse)

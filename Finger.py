@@ -18,8 +18,8 @@ class Finger(object):
     Todo: Pull apart Inmoov's forearm to find out servo models for fingers.
         - These values are just copied from the HS-805BB Servo.
     '''
-    MIN_DEGREE = 0    # Found from Calibrate_Servo.py -- part#: Todo: Find
-    MAX_DEGREE = 180  # Found from Calibrate_Servo.py -- part#: Todo: Find
+    MIN_DEGREE = -90  # Found from Calibrate_Servo.py -- part#: Todo: Find
+    MAX_DEGREE = 90   # Found from Calibrate_Servo.py -- part#: Todo: Find
     SERVO_MIN = 200   # Found from Calibrate_Servo.py -- part#: Todo: Find
     SERVO_MAX = 525   # Found from Calibrate_Servo.py -- part#: Todo: Find
 
