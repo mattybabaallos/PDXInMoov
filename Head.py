@@ -8,14 +8,13 @@ Authors:
     - Dai Ho
 '''
 from Config import degrees_to_pulse, set_pwm
+from HalfRotationServo import HalfRotationServo
 
 class Head(object):
     '''
     This class is used to control the motion of Inmoov's head.
     - Todo: Add mouth and eye control.
     '''
-    MIN_DEGREE = -90  # Found from Calibrate_Servo.py -- part#: HS-805BB
-    MAX_DEGREE = 90   # Found from Calibrate_Servo.py -- part#: HS-805BB
     SERVO_MIN = 200   # Found from Calibrate_Servo.py -- part#: HS-805BB
     SERVO_MAX = 525   # Found from Calibrate_Servo.py -- part#: HS-805BB
 
@@ -23,16 +22,26 @@ class Head(object):
         '''
         Initialize all of Inmoov's head variables
         '''
-        self.x_channel = x_channel    # Pi hat channel that the x-axis servo is connected to
-        self.y_channel = y_channel    # Pi hat channel that the y-axis servo is connected to
+
+        # Setup x-axis Servo control on the specified channel
+        self.x_channel = x_channel
+        self.x_servo = HalfRotationServo(
+            self.x_channel, self.SERVO_MIN, self.SERVO_MAX)
+
+        # Setup y-axis Servo control on the specified channel
+        self.y_channel = y_channel
+        self.y_servo = HalfRotationServo(
+            self.y_channel, self.SERVO_MIN, self.SERVO_MAX)
+
+        # Start Head facing forward
         self.initialize()
 
     def initialize(self):
         '''
         Make head look straight forward x and y-axis
         '''
-        self.move_y(0)
-        self.move_x(0)
+        self.x_servo.rotate(0)
+        self.y_servo.rotate(0)
 
     def move_y(self, degrees):
         '''
@@ -41,9 +50,7 @@ class Head(object):
         -   0 degrees makes Inmoov look forward.
         -  90 degrees makes Inmoov look up.
         '''
-        pulse = degrees_to_pulse(degrees, self.MIN_DEGREE, self.MAX_DEGREE,
-                                 self.SERVO_MIN, self.SERVO_MAX)
-        set_pwm(self.y_channel, 0, pulse)
+        self.y_servo.rotate(degrees)
 
     def move_x(self, degrees):
         '''
@@ -52,6 +59,4 @@ class Head(object):
         -   0 degees makes Inmoov look forward.
         -  90 degrees moves Inmoov's head all the way left.
         '''
-        pulse = degrees_to_pulse(degrees, self.MIN_DEGREE, self.MAX_DEGREE,
-                                 self.SERVO_MIN, self.SERVO_MAX)
-        set_pwm(self.x_channel, 0, pulse)
+        self.x_servo.rotate(degrees)
