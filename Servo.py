@@ -23,6 +23,10 @@ class Servo(object):
         self.min_degree = min_degree
         self.max_degree = max_degree
 
+    def off(self):
+        """ Turn the servo off """
+        set_pwm(self._channel, 0, 0)
+
     def rotate(self, degree):
         """ Rotate to the specified degrees """
         try:
@@ -123,4 +127,3 @@ class Servo(object):
     @max_degree.getter
     def max_degree(self):
         return self._max_degree
-
