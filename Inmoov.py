@@ -32,6 +32,8 @@ class Inmoov(object):
     R_INDEX_FINGER_CHANNEL = 14
     R_THUMB_CHANNEL        = 15
 
+    HEAD_X_SERVO = Servo(0, servo_min, servo_max, min_degree, max_degree)
+
 
     def __init__(self):
         """

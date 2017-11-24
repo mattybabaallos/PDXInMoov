@@ -15,8 +15,8 @@ class Servo(object):
     MIN_CHANNEL = 0
     MAX_CHANNEL = 15
 
-    def __init__(self, channel, min_pulse, max_pulse=None, min_degree=None,
-                 max_degree=None):
+    def __init__(self, shield_id, channel, min_pulse=None, max_pulse=None,
+                 min_degree=None, max_degree=None):
         self.channel = channel
         self.min_pulse = min_pulse
         self.max_pulse = max_pulse
@@ -25,13 +25,13 @@ class Servo(object):
 
     def off(self):
         """ Turn the servo off """
-        set_pwm(self._channel, 0, 0)
+        set_pwm(self.channel, 0, 0)
 
     def rotate(self, degree):
         """ Rotate to the specified degrees """
         try:
             pulse = self.degrees_to_pulse(degree)
-            set_pwm(self._channel, 0, pulse)
+            set_pwm(self.channel, 0, pulse)
         except ValueError:
             print("Could not rotate Servo to", degree)
 

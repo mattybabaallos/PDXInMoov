@@ -23,7 +23,7 @@ class Finger(object):
 
     def __init__(self, channel):
         try:
-            self.servo = Servo(channel, self.SERVO_MIN, self.SERVO_MAX)
+            self.servo = Servo(channel, self.SERVO_MIN, self.SERVO_MAX, -85, 30)
         except ValueError:
             print("Could not initialize Finger on channel", channel)
 

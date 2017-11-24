@@ -36,24 +36,24 @@ class Shoulder(object):
         self.abduction_servo.rotate(0)
         self.rotation_servo.rotate(0)
 
-    def flex(self, degree)
+    def flex(self, degree):
         """TODO maybe check degrees """
-        self.flexion_servo.rotate(degrees)
+        self.flexion_servo.rotate(degree)
 
-    def extend(self, degree)
-        self.flexion_servo.rotate(degrees)
+    def extend(self, degree):
+        self.flexion_servo.rotate(degree)
 
-    def abduction_up(self, degree)
-        self.abduction_servo.rotate(degrees)
+    def abduction_up(self, degree):
+        self.abduction_servo.rotate(degree)
 
-    def abduction_down(self, degree)
-        self.abduction_servo.rotate(degrees)
+    def abduction_down(self, degree):
+        self.abduction_servo.rotate(degree)
 
-    def rotation_internal(self, degree)
-        self.rotation_servo.rotate(degrees)
+    def rotation_internal(self, degree):
+        self.rotation_servo.rotate(degree)
 
-    def rotation_external(self, degree)
-        self.rotation_servo.rotate(degrees)
+    def rotation_external(self, degree):
+        self.rotation_servo.rotate(degree)
 
     def off(self):
         self.rotation_servo.off()
