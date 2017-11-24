@@ -9,6 +9,7 @@ Authors:
 """
 from Servo import Servo
 
+
 class Wrist(object):
     """ This class represents an Inmoov Wrist """
 
@@ -30,3 +31,7 @@ class Wrist(object):
     def rotate(self, degree):
         """ Rotate this Wrist the desired degree """
         self.servo.rotate(degree)
+
+    def off(self):
+        """ Turn off all fingers off"""
+        self.servo.off()

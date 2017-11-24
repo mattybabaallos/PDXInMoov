@@ -50,3 +50,7 @@ class Head(object):
         -  90 degrees moves Inmoov's head all the way left.
         """
         self.x_servo.rotate(degrees)
+
+    def off(self):
+        self.x_servo.off()
+        self.y_servo.off()

@@ -9,6 +9,7 @@ Authors:
 """
 from Servo import Servo
 
+
 class Torso(object):
     """ This class is used to control Inmoov's Torso """
     SERVO_MIN = 200   # Found from Calibrate_Servo.py -- part#: HS-805BB
@@ -37,3 +38,8 @@ class Torso(object):
         """
         self.l_servo.rotate(degrees)
         self.r_servo.rotate(degrees)
+
+    def off(self):
+        """ Turn off all fingers off"""
+        self.l_servo.off()
+        self.r_servo.off()

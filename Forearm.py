@@ -22,3 +22,7 @@ class Forearm(object):
         """
         self.wrist = Wrist(wrist_channel)
         self.hand = Hand(pinky_channel, ring_channel, mid_channel, index_channel, thumb_channel)
+
+    def off(self):
+        self.wrist.off()
+        self.hand.off()

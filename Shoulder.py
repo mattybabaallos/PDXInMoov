@@ -55,7 +55,7 @@ class Shoulder(object):
     def rotation_external(self, degree)
         self.rotation_servo.rotate(degrees)
 
-    def off(self)
+    def off(self):
         self.rotation_servo.off()
         self.abduction_servo.off()
         self.flexion_servo.off()

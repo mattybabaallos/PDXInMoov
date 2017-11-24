@@ -46,3 +46,6 @@ class Finger(object):
         - Todo: Determine whether this needs to be 90 or -90
         """
         self.servo.rotate(90)
+
+    def off(self):
+        self.servo.off()

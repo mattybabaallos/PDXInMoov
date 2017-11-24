@@ -33,6 +33,6 @@ class Arm(object):
 
     # def down(self)
 
-    def off(self)
+    def off(self):
         self.forearm.off()
         self.shoulder.off()
