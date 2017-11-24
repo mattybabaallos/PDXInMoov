@@ -7,8 +7,7 @@ Authors:
     - Matty Baba "Black Sheep" Allos
     - Dai Ho
 '''
-from Config import degrees_to_pulse, set_pwm
-from HalfRotationServo import HalfRotationServo
+from Servo import Servo
 
 class Head(object):
     '''
@@ -19,22 +18,13 @@ class Head(object):
     SERVO_MAX = 525   # Found from Calibrate_Servo.py -- part#: HS-805BB
 
     def __init__(self, x_channel, y_channel):
-        '''
-        Initialize all of Inmoov's head variables
-        '''
-
-        # Setup x-axis Servo control on the specified channel
-        self.x_channel = x_channel
-        self.x_servo = HalfRotationServo(
-            self.x_channel, self.SERVO_MIN, self.SERVO_MAX)
-
-        # Setup y-axis Servo control on the specified channel
-        self.y_channel = y_channel
-        self.y_servo = HalfRotationServo(
-            self.y_channel, self.SERVO_MIN, self.SERVO_MAX)
-
-        # Start Head facing forward
-        self.initialize()
+        """ Initialize all Head Servos and look forward """
+        try:
+            self.x_servo = Servo(x_channel, self.SERVO_MIN, self.SERVO_MAX)
+            self.y_servo = Servo(y_channel, self.SERVO_MIN, self.SERVO_MAX)
+            self.initialize()
+        except ValueError:
+            print("Could not initialize Head")
 
     def initialize(self):
         '''

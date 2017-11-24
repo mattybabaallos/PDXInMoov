@@ -1,20 +1,16 @@
 #!/bin/python
-'''
+"""
 This module holds Inmoov's Torso
 
 Authors:
     - Brett Creeley
     - Matty Baba "Black Sheep" Allos
     - Dai Ho
-'''
-from Config import degrees_to_pulse, set_pwm
+"""
+from Servo import Servo
 
 class Torso(object):
-    '''
-    This class is used to control Inmoov's Torso.
-    '''
-    MIN_DEGREE = -90  # Found from Calibrate_Servo.py -- part#: HS-805BB
-    MAX_DEGREE = 90   # Found from Calibrate_Servo.py -- part#: HS-805BB
+    """ This class is used to control Inmoov's Torso """
     SERVO_MIN = 200   # Found from Calibrate_Servo.py -- part#: HS-805BB
     SERVO_MAX = 525   # Found from Calibrate_Servo.py -- part#: HS-805BB
 
@@ -22,15 +18,15 @@ class Torso(object):
         '''
         Initialize all of Inmoov's Torso variables.
         '''
-        self.l_channel = l_channel    # Pi hat channel that the left servo is connected to
-        self.r_channel = r_channel    # Pi hat channel that the right servo is connected to
-        self.initialize()
+        try:
+            self.l_servo = Servo(l_channel, self.SERVO_MIN, self.SERVO_MAX)
+            self.r_servo = Servo(r_channel, self.SERVO_MIN, self.SERVO_MAX)
+            self.lean(0)  # Make Torso straight
+        except ValueError:
+            print("Could not initialize Torso on channels", l_channel, r_channel)
 
     def initialize(self):
-        '''
-        Center Inmoov's Torso.
-        '''
-        self.lean(90)
+        self.lean(0)
 
     def lean(self, degrees):
         '''
@@ -39,7 +35,5 @@ class Torso(object):
         -   0 degrees centers Invmoov's Torso.
         -  90 degrees leans Inmoov all the way left.
         '''
-        pulse = degrees_to_pulse(degrees, self.MIN_DEGREE, s0lf.MAX_DEGREE,
-                                 self.SERVO_MIN, self.SERVO_MAX)
-        set_pwm(self.l_channel, 0, pulse)
-        set_pwm(self.r_channel, 0, pulse)
+        self.l_servo.rotate(degrees)
+        self.r_servo.rotate(degrees)

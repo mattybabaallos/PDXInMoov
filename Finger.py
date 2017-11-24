@@ -7,7 +7,7 @@ Authors:
     Matty Baba "Black Sheep" Allos
     Dai Ho
 '''
-from Config import set_pwm, degrees_to_pulse
+from Servo import Servo
 
 class Finger(object):
     '''
@@ -18,32 +18,31 @@ class Finger(object):
     Todo: Pull apart Inmoov's forearm to find out servo models for fingers.
         - These values are just copied from the HS-805BB Servo.
     '''
-    MIN_DEGREE = -90  # Found from Calibrate_Servo.py -- part#: Todo: Find
-    MAX_DEGREE = 90   # Found from Calibrate_Servo.py -- part#: Todo: Find
     SERVO_MIN = 200   # Found from Calibrate_Servo.py -- part#: Todo: Find
     SERVO_MAX = 525   # Found from Calibrate_Servo.py -- part#: Todo: Find
 
     def __init__(self, channel):
-        self.channel = channel
+        try:
+            self.servo = Servo(channel, self.SERVO_MIN, self.SERVO_MAX)
+        except ValueError:
+            print("Could not initialize Finger on channel", channel)
 
     def bend_max(self):
         '''
         Bend the Finger the max amount
-        - Todo: Determine whether this needs to be SERVO_MAX or SERVO_MIN
+        - Todo: Determine whether this needs to be 90 or -90
         '''
-        set_pwm(self.channel, 0, self.SERVO_MIN)
+        self.servo.rotate(-90)
 
-    def bend(self, degrees):
+    def bend(self, degree):
         '''
         Bend the Finger
         '''
-        pulse = degrees_to_pulse(degrees, self.MIN_DEGREE, self.MAX_DEGREE,
-                                 self.SERVO_MIN, self.SERVO_MAX)
-        set_pwm(self.channel, 0, pulse)
+        self.servo.rotate(degree)
 
-    def straighten(self):
+    def straighten_max(self):
         '''
         This is to make the finger straight.
-        - Todo: Determine whether this needs to be SERVO_MAX or SERVO_MIN
+        - Todo: Determine whether this needs to be 90 or -90
         '''
-        set_pwm(self.channel, 0, self.SERVO_MAX)
+        self.servo.rotate(90)

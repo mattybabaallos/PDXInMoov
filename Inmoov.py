@@ -54,31 +54,3 @@ class Inmoov(object):
                                      self.R_INDEX_FINGER_CHANNEL,
                                      self.R_THUMB_CHANNEL,
                                      self.R_WRIST_CHANNEL)
-
-    def move_head(self, x_degrees=None, y_degrees=None):
-        '''
-        Move Inmoov's head in the x and y-directions. If no x and/or
-        y_degrees are specified then they are not used.
-        '''
-        if x_degrees is not None:
-            self.move_head_x(x_degrees)
-        if y_degrees is not None:
-            self.move_head_y(y_degrees)
-
-    def move_head_x(self, degrees):
-        '''
-        Move Inmoov's head in the x-direction.
-        '''
-        self.head.move_x(degrees)
-
-    def move_head_y(self, degrees):
-        '''
-        Move Inmoov's head in the y-direction.
-        '''
-        self.head.move_y(degrees)
-
-    def move_torso(self, degrees):
-        '''
-        Move Inmoov's torso.
-        '''
-        self.torso.lean(degrees)

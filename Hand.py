@@ -26,15 +26,15 @@ class Hand(object):
         Todo: Initialize to some value
         '''
 
-    def extend_all_fingers(self):
+    def straighten_all_fingers(self):
         '''
-        Extend all fingers for waving/high-fiving/etc.
+        Straighten all fingers for waving/high-fiving/etc.
         '''
-        self.pinky_finger.straighten()
-        self.ring_finger.straighten()
-        self.mid_finger.straighten()
-        self.index_finger.straighten()
-        self.thumb.straighten()
+        self.pinky_finger.straighten_max()
+        self.ring_finger.straighten_max()
+        self.mid_finger.straighten_max()
+        self.index_finger.straighten_max()
+        self.thumb.straighten_max()
 
     def make_fist(self):
         '''
@@ -46,7 +46,7 @@ class Hand(object):
         self.index_finger.bend_max()
         self.thumb.bend_max()
 
-    def bend_fingers(self, pinky_deg=None, ring_deg=None, mid_deg=None,
+    def move_fingers(self, pinky_deg=None, ring_deg=None, mid_deg=None,
                      index_deg=None, thumb_deg=None):
         '''
         Bend the Fingers that have values sent in.
