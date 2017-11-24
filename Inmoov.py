@@ -1,20 +1,20 @@
 #!/bin/python
-'''
+"""
 This module are Inmoov!
 
 Authors:
     - Brett Creeley
     - Matty Baba "Black Sheep" Allos
     - Dai Ho
-'''
+"""
 from Head import Head
 from Torso import Torso
 from Forearm import Forearm
 
 class Inmoov(object):
-    '''
+    """
     This class are Inmoov!
-    '''
+    """
     HEAD_X_CHANNEL  = 0
     HEAD_Y_CHANNEL  = 1
     TORSO_L_CHANNEL = 2
@@ -34,14 +34,14 @@ class Inmoov(object):
 
 
     def __init__(self):
-        '''
+        """
         Build all of Inmoov's parts.
-        '''
+        """
         self.head = Head(self.HEAD_X_CHANNEL, self.HEAD_Y_CHANNEL)
         self.torso = Torso(self.TORSO_L_CHANNEL, self.TORSO_R_CHANNEL)
-        '''
+        """
         Todo: Move the Forearm objects into the Arm class (unimplemented)
-        '''
+        """
         self.left_forearm = Forearm(self.L_PINKY_FINGER_CHANNEL,
                                     self.L_RING_FINGER_CHANNEL,
                                     self.L_MID_FINGER_CHANNEL,

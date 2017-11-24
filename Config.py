@@ -1,12 +1,12 @@
 #!/bin/python
-'''
+"""
 This module holds the global pwm variable and any utility functions
 
 Authors:
     - Brett Creeley
     - Matty Baba "Black Sheep" Allos
     - Dai Ho
-'''
+"""
 from Adafruit_PWM_Servo_Driver import PWM
 
 pwm = PWM(0x40)

@@ -15,9 +15,9 @@ class Torso(object):
     SERVO_MAX = 525   # Found from Calibrate_Servo.py -- part#: HS-805BB
 
     def __init__(self, l_channel, r_channel):
-        '''
+        """
         Initialize all of Inmoov's Torso variables.
-        '''
+        """
         try:
             self.l_servo = Servo(l_channel, self.SERVO_MIN, self.SERVO_MAX)
             self.r_servo = Servo(r_channel, self.SERVO_MIN, self.SERVO_MAX)
@@ -29,11 +29,11 @@ class Torso(object):
         self.lean(0)
 
     def lean(self, degrees):
-        '''
+        """
         Make Inmoov lean based on the specified degree.
         - -90 degrees leans Inmoov all the way right.
         -   0 degrees centers Invmoov's Torso.
         -  90 degrees leans Inmoov all the way left.
-        '''
+        """
         self.l_servo.rotate(degrees)
         self.r_servo.rotate(degrees)
