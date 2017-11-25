@@ -1,0 +1,90 @@
+//Min pulse corsponed to min degree
+//Max pulse corsponed to max degree
+
+[{
+    //the more negative the more bent the finger
+    "id": 0,
+    "body_part": "right_pinky",
+    "min_degree":-90,
+    "max_degree":90,
+    "min_pulse":230,
+    "max_pulse":420,
+    "default_angle":90 //Open
+},
+{
+    "id": 1,
+    "body_part": "right_thumb",
+    "min_degree":-90,
+    "max_degree":90,
+    "min_pulse":225,
+    "max_pulse":575,
+    "default_angle":90 //Open
+},
+{
+    "id": 2,
+    "body_part": "right_mid",
+    "min_degree":-90,
+    "max_degree":90,
+    "min_pulse":150,
+    "max_pulse":450,
+    "default_angle":90 //Open
+},
+{
+    "id": 3,
+    "body_part": "right_index",
+    "min_degree":-90,
+    "max_degree":90,
+    "min_pulse":150,
+    "max_pulse":500,
+    "default_angle":90 //Open
+},
+{
+    //NOTE: Flipped around
+    //NOTE: Needs to be looked internally and be tested again 
+    "id": 4,
+    "body_part": "right_index",
+    "min_degree":90,
+    "max_degree":-90,
+    "min_pulse":250,
+    "max_pulse":575,
+    "default_angle":90 //Open
+},
+{
+    //NOTE: Does not work need
+    "id": 5,
+    "body_part": "right_wrist",
+    "min_degree":0,
+    "max_degree":0,
+    "min_pulse":0,
+    "max_pulse":0,
+    "default_angle":0
+},
+{
+    //Positive makes wrist clockwise
+    //NOTE: Makes noise
+    "id": 6,
+    "body_part": "left_wrist",
+    "min_degree":-90,
+    "max_degree":90,
+    "min_pulse":200,
+    "max_pulse":400,
+    "default_angle":90
+},
+{
+    "id": 7,
+    "body_part": "jaw",
+    "min_degree":-90,
+    "max_degree":90,
+    "min_pulse":360,
+    "max_pulse":450,
+    "default_angle":-90 //Closed
+},
+{
+    "id": 8,
+    "body_part": "right_elbow",
+    "min_degree":-90,
+    "max_degree":90,
+    "min_pulse":125,
+    "max_pulse":300,
+    "default_angle":-90 //Down
+}]
