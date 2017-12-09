@@ -15,7 +15,7 @@ class Servo(object):
     MIN_CHANNEL = 0
     MAX_CHANNEL = 15
 
-    def __init__(self, shield_id, channel, min_pulse=None, max_pulse=None,
+    def __init__(self, channel, min_pulse, max_pulse=None,
                  min_degree=None, max_degree=None):
         self.channel = channel
         self.min_pulse = min_pulse
@@ -23,27 +23,35 @@ class Servo(object):
         self.min_degree = min_degree
         self.max_degree = max_degree
 
-    def off(self):
-        """ Turn the servo off """
-        set_pwm(self.channel, 0, 0)
+
+    #def id_to_channel(self):
+    #    return self.id %
+
+    #def id_to_address(self):
+    #    return address
 
     def rotate(self, degree):
         """ Rotate to the specified degrees """
         try:
             pulse = self.degrees_to_pulse(degree)
-            set_pwm(self.channel, 0, pulse)
+            set_pwm(self._channel, 0, pulse)
         except ValueError:
             print("Could not rotate Servo to", degree)
 
     def degrees_to_pulse(self, degree):
         """ Map degree input value to a pulse length output value """
-        if degree >= self.min_degree and degree <= self.max_degree:
-            return ((degree - self.min_degree)
-                    * (self.max_pulse - self.min_pulse + 1)
-                    / (self.max_degree - self.min_degree + 1)
-                    + self.min_pulse)
+        pulse = ((degree - self.min_degree)
+                 * (self.max_pulse - self.min_pulse + 1)
+                 / (self.max_degree - self.min_degree + 1)
+                 + self.min_pulse)
+
+        # Check for boundary values
+        if pulse < self.min_pulse:
+            return self.min_pulse
+        elif pulse > self.max_pulse:
+            return self.max_pulse
         else:
-            raise ValueError("Invalid Servo input degree", degree)
+            return pulse
 
     @property
     def channel(self):
@@ -97,6 +105,7 @@ class Servo(object):
     def min_degree(self, value=None):
         """ Only allow degree between -360 and 360 """
         if value is None:
+            # Default value
             self._min_degree = -90
         elif value >= -360 and value <= 360:
             self._min_degree = value
@@ -117,6 +126,7 @@ class Servo(object):
         """ Only allow degree between -360 and 360 """
 
         if value is None:
+            # Default value
             self._max_degree = 90
         elif value >= -360 and value <= 360:
             self._max_degree = value
