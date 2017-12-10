@@ -4,8 +4,7 @@ This module contains an Inmoov Arm
 
 Authors:
     Brett Creeley
-    Matty Baba "Black Sheep" Allos
-    Dai Ho
+    Matty Baba Allos
 """
 from Shoulder import Shoulder
 from Forearm import Forearm

@@ -3,9 +3,8 @@
 This module holds the global pwm variable and any utility functions
 
 Authors:
-    - Brett Creeley
-    - Matty Baba "Black Sheep" Allos
-    - Dai Ho
+    Brett Creeley
+    Matty Baba Allos
 """
 from Adafruit_PWM_Servo_Driver import PWM
 

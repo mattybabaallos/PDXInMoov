@@ -4,8 +4,7 @@ This module holds an Inmoov Finger.
 
 Authors:
     Brett Creeley
-    Matty Baba "Black Sheep" Allos
-    Dai Ho
+    Matty Baba Allos
 """
 from Servo import Servo
 

@@ -1,5 +1,10 @@
 #!/bin/bash
 
+"""
+Authors:
+    Brett Creeley
+    Matty Baba Allos
+"""
 from Config import set_pwm
 class Servo(object):
     """

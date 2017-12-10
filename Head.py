@@ -3,9 +3,8 @@
 This module holds Inmoov's head
 
 Authors:
-    - Brett Creeley
-    - Matty Baba "Black Sheep" Allos
-    - Dai Ho
+    Brett Creeley
+    Matty Baba Allos
 """
 from Servo import Servo
 

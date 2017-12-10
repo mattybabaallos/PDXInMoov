@@ -3,9 +3,8 @@
 This module are Inmoov!
 
 Authors:
-    - Brett Creeley
-    - Matty Baba "Black Sheep" Allos
-    - Dai Ho
+    Brett Creeley
+    Matty Baba Allos
 """
 from Head import Head
 from Torso import Torso

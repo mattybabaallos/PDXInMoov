@@ -4,8 +4,7 @@ This module holds an Inmoov Hand.
 
 Authors:
     Brett Creeley
-    Matty Baba "Black Sheep" Allos
-    Dai Ho
+    Matty Baba Allos
 """
 from Finger import Finger
 

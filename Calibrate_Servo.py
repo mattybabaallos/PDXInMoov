@@ -1,3 +1,9 @@
+"""
+Authors:
+    Brett Creeley
+    Matty Baba Allos
+"""
+
 #!/bin/python
 
 # Returns servo pulse how the library wants it based

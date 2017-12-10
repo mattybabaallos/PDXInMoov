@@ -1,6 +1,10 @@
-//Min pulse corsponed to min degree
-//Max pulse corsponed to max degree
-
+//Min pulse correspond to min degree
+//Max pulse correspond to max degree
+/*
+Authors:
+    Brett Creeley
+    Matty Baba Allos
+*/
 [{
     //the more negative the more bent the finger
     "id": 0,
@@ -42,7 +46,7 @@
     //NOTE: Flipped around
     //NOTE: Needs to be looked internally and be tested again 
     "id": 4,
-    "body_part": "right_index",
+    "body_part": "right_ring",
     "min_degree":90,
     "max_degree":-90,
     "min_pulse":250,
