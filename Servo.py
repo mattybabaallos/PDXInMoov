@@ -6,6 +6,7 @@ Authors:
     Matty Baba Allos
 """
 from Config import set_pwm
+
 class Servo(object):
     """
     Servo stores the following values:
@@ -16,34 +17,45 @@ class Servo(object):
         max_degree: The maximum degree the Servo can rotate to
     """
 
-    # Can only have 16 channels per Adafruit PWM Pi Hat
-    MIN_CHANNEL = 0
-    MAX_CHANNEL = 15
-    NUM_SHIELDS = 1
-
-    def __init__(self, id, min_pulse, max_pulse,
-                 min_degree=None, max_degree=None, name="servo"):
-        self.id = id
-        self.channel = id % 16
-        self.shield_id = id /16
+    def __init__(self,
+         id,
+         min_pulse,
+         max_pulse,
+         min_degree=None,
+         max_degree=None,
+         name="servo"
+         ):
+        self.id = id 
+        self.channel = self._id_to_channel(id)
+        self.shield_id = self._id_to_sheild_id(id)
         self.min_pulse = min_pulse
         self.max_pulse = max_pulse
         self.min_degree = min_degree
         self.max_degree = max_degree
         self.name = name
 
+    def _id_to_channel(self,id):
+        """Given the id of the servo starting from 0 and because there
+        are only 16 channels on hat we can know which channel the servo 
+        is connected into if we take the mod of the id. For example,
+        a servo with id 34 is connected to channel 2 because 34%16 gives
+        2 because 16 fits into 34 two times and we left 2"""
+        return id % 16 
 
-    #def id_to_channel(self):
-    #    return self.id %
-
-    #def id_to_address(self):
-    #    return address
+    def _id_to_sheild_id(self,id):
+        """Given the id of the servo starting from 0 and because there
+        are only 16 channels on hat we can know which sheild the servo is pluged into
+        if we divide the id by 16 and roudning to nearest integer.
+        for example if we have servo plugged into channel 33 
+        we know it's on sheild 2, counting from 0, because 33/16=2.06
+        we round to the nearest int and we get a 2"""
+        return int(round(id / 16)) #Make sure it's an int
 
     def rotate(self, degree):
         """ Rotate to the specified degrees """
         try:
             pulse = self.degrees_to_pulse(degree)
-            set_pwm(self.shield_id,self._channel, 0, pulse)
+            set_pwm(self.shield_id,self.channel, 0, pulse)
         except ValueError as exception:
             print(exception)
             print("Could not rotate {} to {} degree").format(self.name, degree)
@@ -51,10 +63,10 @@ class Servo(object):
     def off(self):
         """ Rotate to the specified degrees """
         try:
-            set_pwm(self.shield_id,self._channel, 0, 0)
+            set_pwm(self.shield_id,self.channel, 0, 0)
         except ValueError as exception:
             print(exception)
-            print("Could not {} off").format(self.name)
+            print("Could not turn off {}").format(self.name)
 
     def degrees_to_pulse(self, degree):
         """ Map degree input value to a pulse length output value """
@@ -70,18 +82,6 @@ class Servo(object):
             return self.max_pulse
         else:
             return pulse
-
-    @property
-    def channel(self):
-        return self._channel
-
-    @channel.setter
-    def channel(self, value):
-        """ Don't allow invalid channel values """
-        if value >= self.MIN_CHANNEL and value <= self.MAX_CHANNEL:
-            self._channel = value
-        else:
-            raise ValueError('Channel must be between 0 and 15 inclusive')
 
     @property
     def min_pulse(self):

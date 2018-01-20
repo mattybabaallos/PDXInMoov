@@ -3,6 +3,8 @@ Authors:
     Brett Creeley
     Matty Baba Allos
 """
+#NOTE: This file is used as sandbox file and to get max and min values for servos
+
 
 #!/bin/python
 

@@ -1,5 +1,9 @@
+#This file is sandbox workspace to try code in
+
+
 import json
 from Servo import Servo
+import time
 
 
 json_data = None
@@ -24,3 +28,10 @@ def parse(obj):
 
 with open("inmoov_servo.json") as json_file:
     json_data = json.load(json_file,object_hook=parse)
+
+
+print servos[0].channel ,servos[0].shield_id
+
+servos[0].rotate(10)
+time.sleep(1)
+servos[0].off()
