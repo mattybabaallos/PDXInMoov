@@ -16,7 +16,7 @@ class Torso(object):
         """
         Initialize all of Inmoov's Torso variables.
         """
-        if left_servo is None or right_servo is None
+        if left_servo is None or right_servo is None:
             raise "Could not initialize Torso"
         self.l_servo = left_servo
         self.r_servo = right_servo

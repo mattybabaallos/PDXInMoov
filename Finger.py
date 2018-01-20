@@ -22,7 +22,7 @@ class Finger(object):
 
     def __init__(self, servo):
         
-        if servo is None
+        if servo is None:
             raise "Could not initialize Finger"
         
         self.servo = servo

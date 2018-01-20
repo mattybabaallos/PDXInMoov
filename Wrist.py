@@ -19,7 +19,8 @@ class Wrist(object):
 
     def __init__(self, servo):
         """ Set the Servo for this Wrist """
-        if servo is None
+        
+        if servo is None:
             raise "Could not initiate wrist"
         self.servo = servo
 
