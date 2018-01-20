@@ -18,9 +18,9 @@ def set_pwm(shield_id, channel, pulse_on, pulse_off):
     if shield_id == 0:
         pwm_shield_0.setPWM(channel, pulse_on, pulse_off)
     elif shield_id == 1:
-        raise ValueError("Unimplemented shield_id", shield_id)
+        raise ValueError("Unimplemented shield_id {}".format(shield_id))
     elif shield_id == 2:
-        raise ValueError("Unimplemented shield_id", shield_id)
+        raise ValueError("Unimplemented shield_id {}".format(shield_id))
     else:
-        raise ValueError("Invalid shield_id", shield_id)
+        raise ValueError("Invalid shield_id")
 

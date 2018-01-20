@@ -19,14 +19,18 @@ class Servo(object):
     # Can only have 16 channels per Adafruit PWM Pi Hat
     MIN_CHANNEL = 0
     MAX_CHANNEL = 15
+    NUM_SHIELDS = 1
 
-    def __init__(self, channel, min_pulse, max_pulse=None,
-                 min_degree=None, max_degree=None):
-        self.channel = channel
+    def __init__(self, id, min_pulse, max_pulse,
+                 min_degree=None, max_degree=None, name="servo"):
+        self.id = id
+        self.channel = id % 16
+        self.shield_id = id /16
         self.min_pulse = min_pulse
         self.max_pulse = max_pulse
         self.min_degree = min_degree
         self.max_degree = max_degree
+        self.name = name
 
 
     #def id_to_channel(self):
@@ -39,9 +43,18 @@ class Servo(object):
         """ Rotate to the specified degrees """
         try:
             pulse = self.degrees_to_pulse(degree)
-            set_pwm(self._channel, 0, pulse)
-        except ValueError:
-            print("Could not rotate Servo to", degree)
+            set_pwm(self.shield_id,self._channel, 0, pulse)
+        except ValueError as exception:
+            print(exception)
+            print("Could not rotate {} to {} degree").format(self.name, degree)
+
+    def off(self):
+        """ Rotate to the specified degrees """
+        try:
+            set_pwm(self.shield_id,self._channel, 0, 0)
+        except ValueError as exception:
+            print(exception)
+            print("Could not {} off").format(self.name)
 
     def degrees_to_pulse(self, degree):
         """ Map degree input value to a pulse length output value """

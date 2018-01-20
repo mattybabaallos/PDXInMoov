@@ -16,8 +16,9 @@ def determineServoPulse(pulse_us_ds, hz):
 
 
 #!/bin/python
-#import time
-#from Adafruit_PWM_Servo_Driver import PWM
+import time
+from Adafruit_PWM_Servo_Driver import PWM
+from Servo import Servo
 
 
 # Left/Right Torso - HS-805BB
@@ -26,15 +27,26 @@ servoMax = determineServoPulse(2100, 50)
 servoMid = determineServoPulse(1500, 50)
 servo135 = determineServoPulse(1900, 50)
 
-#pwm = PWM(0x40)
-#pwm.setPWMFreq(50)
+pwm = PWM(0x40)
+pwm.setPWMFreq(50)
 
 print "ServoMin = ", servoMin
 print "ServoMax = ", servoMax
 
-# def head_up():
-#     '''Move head up'''
-#     pwm.setPWM(2, 0, servoMax)
+servo = Servo(0,0,servoMin,servoMax)
+servo.rotate(10)
+servo.off()
+
+
+def head_up():
+     '''Move head up'''
+     print("head up")
+     pwm.setPWM(0, 0, servoMax)
+
+
+def off():
+    '''Move head up'''
+    pwm.setPWM(0, 0, 0)
 
 # def head_down():
 #     '''Move head down'''
