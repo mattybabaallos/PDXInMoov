@@ -6,8 +6,6 @@ Authors:
     Brett Creeley
     Matty Baba Allos
 """
-from Shoulder import Shoulder
-from Forearm import Forearm
 
 
 class Arm(object):
@@ -15,22 +13,19 @@ class Arm(object):
     This class represents an Inmoov Arm
     """
 
-    def __init__(self, pinky_channel, ring_channel, mid_channel,
-                 index_channel, thumb_channel, wrist_channel,
-                 flexion_channel, abduction_channel, rotation_channel):
+    def __init__(self, forearm, shoulder):
         """
         Build an Inmoov Arm
         """
-        self.forearm = Forearm(pinky_channel, ring_channel,
-                               mid_channel, index_channel,
-                               thumb_channel, wrist_channel)
-        self.shoulder = Shoulder(flexion_channel,
-                                 abduction_channel, rotation_channel)
+        if forearm is None or shoulder is None
+            raise "Could not build a arm"
+        self.forearm = forearm
+        self.shoulder = shoulder
 
 
-   # def up(self)
+    #def up(self)
 
-    # def down(self)
+    #def down(self)
 
     def off(self):
         self.forearm.off()

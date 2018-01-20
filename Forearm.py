@@ -6,21 +6,20 @@ Authors:
     Brett Creeley
     Matty Baba Allos
 """
-from Wrist import Wrist
-from Hand import Hand
 
 class Forearm(object):
     """
     This class represents an Inmoov Forearm
     """
 
-    def __init__(self, pinky_channel, ring_channel, mid_channel,
-                 index_channel, thumb_channel, wrist_channel):
+    def __init__(self, hand, wrist):
         """
         Build an Inmoov Forearm
         """
-        self.wrist = Wrist(wrist_channel)
-        self.hand = Hand(pinky_channel, ring_channel, mid_channel, index_channel, thumb_channel)
+        if hand is None or wrist is None
+            raise "Could not build a forearm"
+        self.wrist = wrist
+        self.hand = hand
 
     def off(self):
         self.wrist.off()

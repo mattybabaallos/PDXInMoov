@@ -20,11 +20,12 @@ class Finger(object):
     SERVO_MIN = 200   # Found from Calibrate_Servo.py -- part#: Todo: Find
     SERVO_MAX = 525   # Found from Calibrate_Servo.py -- part#: Todo: Find
 
-    def __init__(self, channel):
-        try:
-            self.servo = Servo(channel, self.SERVO_MIN, self.SERVO_MAX, -85, 30)
-        except ValueError:
-            print("Could not initialize Finger on channel", channel)
+    def __init__(self, servo):
+        
+        if servo is None
+            raise "Could not initialize Finger"
+        
+        self.servo = servo
 
     def bend_max(self):
         """

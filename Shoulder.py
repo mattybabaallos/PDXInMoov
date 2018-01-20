@@ -12,20 +12,13 @@ from Servo import Servo
 class Shoulder(object):
     """ This class represents an Inmoov Shoulder """
 
-    SERVO_MIN = 200   # Found from Calibrate_Servo.py -- part#: Todo: Find
-    SERVO_MAX = 525   # Found from Calibrate_Servo.py -- part#: Todo: Find
-
-    def __init__(self, flexion_channel, abduction_channel, rotation_channel):
+    def __init__(self, flexion_servo, abduction_servo, rotation_servo):
         """ Build an Inmoov Shoulder """
-        try:
-            self.flexion_servo = Servo(
-                flexion_channel, self.SERVO_MIN, self.SERVO_MAX)
-            self.abduction_servo = Servo(
-                abduction_channel, self.SERVO_MIN, self.SERVO_MAX)
-            self.rotation_servo = Servo(
-                rotation_channel, self.SERVO_MIN, self.SERVO_MAX)
-        except ValueError:
-            print("Could not initiate shoulder on channel")
+        if flexion_servo is None or abduction_servo is None or rotation_servo is None
+            raise "Could not initiate shoulder"
+        self.flexion_servo = flexion_servo
+        self.abduction_servo = abduction_servo
+        self.rotation_servo = rotation_servo
 
     def initialize(self):
         """

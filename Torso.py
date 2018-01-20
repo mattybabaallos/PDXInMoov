@@ -11,19 +11,16 @@ from Servo import Servo
 
 class Torso(object):
     """ This class is used to control Inmoov's Torso """
-    SERVO_MIN = 200   # Found from Calibrate_Servo.py -- part#: HS-805BB
-    SERVO_MAX = 525   # Found from Calibrate_Servo.py -- part#: HS-805BB
 
-    def __init__(self, l_channel, r_channel):
+    def __init__(self, left_servo, right_servo):
         """
         Initialize all of Inmoov's Torso variables.
         """
-        try:
-            self.l_servo = Servo(l_channel, self.SERVO_MIN, self.SERVO_MAX)
-            self.r_servo = Servo(r_channel, self.SERVO_MIN, self.SERVO_MAX)
-            self.lean(0)  # Make Torso straight
-        except ValueError:
-            print("Could not initialize Torso on channels", l_channel, r_channel)
+        if left_servo is None or right_servo is None
+            raise "Could not initialize Torso"
+        self.l_servo = left_servo
+        self.r_servo = right_servo
+        self.lean(0)  # Make Torso straight
 
     def initialize(self):
         self.lean(0)

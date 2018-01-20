@@ -11,19 +11,16 @@ from Servo import Servo
 class Head(object):
     """
     This class is used to control the motion of Inmoov's head.
-    - Todo: Add mouth and eye control.
+    - TODO: Add mouth and eye control.
     """
-    SERVO_MIN = 200   # Found from Calibrate_Servo.py -- part#: HS-805BB
-    SERVO_MAX = 525   # Found from Calibrate_Servo.py -- part#: HS-805BB
 
-    def __init__(self, x_channel, y_channel):
+    def __init__(self, x_servo, y_servo):
         """ Initialize all Head Servos and look forward """
-        try:
-            self.x_servo = Servo(x_channel, self.SERVO_MIN, self.SERVO_MAX)
-            self.y_servo = Servo(y_channel, self.SERVO_MIN, self.SERVO_MAX)
-            self.initialize()
-        except ValueError:
-            print("Could not initialize Head")
+        if x_servo is None or y_servo is None
+            raise "Could not initialize Head")
+        self.x_servo = x_servo
+        self.y_servo = y_servo
+        self.initialize()
 
     def initialize(self):
         """

@@ -12,15 +12,17 @@ from Finger import Finger
 class Hand(object):
     """ This class represents an Inmoov Hand. """
 
-    def __init__(self, pinky_channel, ring_channel, mid_channel, index_channel, thumb_channel):
+    def __init__(self, pinky_finger, ring_finger, mid_finger, index_finger, thumb_finger):
         """ Build an Inmoov Hand """
-        self.pinky_finger = Finger(pinky_channel)
-        self.ring_finger = Finger(ring_channel)
-        self.mid_finger = Finger(mid_channel)
-        self.index_finger = Finger(index_channel)
-        self.thumb = Finger(thumb_channel)
+        if pinky_finger is None or ring_finger is None or mid_finger is None or index_finger is None or thumb_finger
+            raise "Could not initialize Hand"
+        self.pinky_finger = pinky_finger
+        self.ring_finger = ring_finger
+        self.mid_finger = mid_finger
+        self.index_finger = index_finger
+        self.thumb = thumb_finger
         """
-        Todo: Initialize to some value
+        TODO: Initialize to some value
         """
 
     def straighten_all_fingers(self):

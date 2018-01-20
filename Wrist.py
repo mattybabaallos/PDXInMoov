@@ -17,15 +17,11 @@ class Wrist(object):
         - These values are just copied from the HS-805BB Servo.
     """
 
-    SERVO_MIN = 200   # Found from Calibrate_Servo.py -- part#: Todo: Find
-    SERVO_MAX = 525   # Found from Calibrate_Servo.py -- part#: Todo: Find
-
-    def __init__(self, channel):
+    def __init__(self, servo):
         """ Set the Servo for this Wrist """
-        try:
-            self.servo = Servo(channel, self.SERVO_MIN, self.SERVO_MAX)
-        except ValueError:
-            print("Could not initiate wrist on channel", channel)
+        if servo is None
+            raise "Could not initiate wrist"
+        self.servo = servo
 
     def rotate(self, degree):
         """ Rotate this Wrist the desired degree """
