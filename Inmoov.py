@@ -50,18 +50,25 @@ class Inmoov(object):
         with open(INMOOV_FILE) as json_file:
             json.load(json_file,object_hook=parse)
 
-        self.right_head = Head(filter(lambda x: x.name == "head_x" ,servos)[0],
+
+
+        self.head = Head(filter(lambda x: x.name == "head_x" ,servos)[0],
                 filter(lambda x: x.name == "head_y" ,servos)[0])
+
+        self.right_wrist = Wrist(filter(lambda x: x.name == "left_wrist" ,servos)[0])
+
+
         self.right_hand = Hand(
             Finger(filter(lambda x: x.name == "right_pinky" ,servos)[0]),
-            Finger(filter(lambda x: x.name == "right_finger" ,servos)[0]),
+            Finger(filter(lambda x: x.name == "right_ring" ,servos)[0]),
             Finger(filter(lambda x: x.name == "right_mid" ,servos)[0]),
             Finger(filter(lambda x: x.name == "right_index" ,servos)[0]),
             Finger(filter(lambda x: x.name == "right_thumb" ,servos)[0])
         )
-        self.right_wrist = Wrist(filter(lambda x: x.name == "right_wrist" ,servos)[0])
-        self.right_forearm = Forearm(self.right_hand,self.ri)
-        self.right_arm = Arm()
+
+        self.right_forearm = Forearm(self.right_hand,self.right_wrist)
 
 
-
+    def off(self):
+        """Truns InMoov off"""
+        self.right_forearm.off()

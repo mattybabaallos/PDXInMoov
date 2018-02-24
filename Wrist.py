@@ -21,7 +21,7 @@ class Wrist(object):
         """ Set the Servo for this Wrist """
         
         if servo is None:
-            raise "Could not initiate wrist"
+            raise Exception("Could not initiate wrist")
         self.servo = servo
 
     def rotate(self, degree):

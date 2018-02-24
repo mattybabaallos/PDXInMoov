@@ -14,8 +14,8 @@ class Hand(object):
 
     def __init__(self, pinky_finger, ring_finger, mid_finger, index_finger, thumb_finger):
         """ Build an Inmoov Hand """
-        if pinky_finger is None or ring_finger is None or mid_finger is None or index_finger is None or thumb_finger:
-            raise "Could not initialize Hand"
+        if pinky_finger is None or ring_finger is None or mid_finger is None or index_finger is None or thumb_finger is None:
+            raise Exception('Could not initialize Hand')
         self.pinky_finger = pinky_finger
         self.ring_finger = ring_finger
         self.mid_finger = mid_finger
