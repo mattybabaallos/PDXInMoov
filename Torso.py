@@ -16,8 +16,8 @@ class Torso(object):
         """
         Initialize all of Inmoov's Torso variables.
         """
-        if left_servo is None or right_servo is None
-            raise "Could not initialize Torso"
+        if left_servo is None or right_servo is None:
+            raise Exception("Could not initialize Torso")
         self.l_servo = left_servo
         self.r_servo = right_servo
         self.lean(0)  # Make Torso straight

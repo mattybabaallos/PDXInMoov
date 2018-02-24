@@ -16,7 +16,7 @@ class Forearm(object):
         """
         Build an Inmoov Forearm
         """
-        if hand is None or wrist is None
+        if hand is None or wrist is None:
             raise "Could not build a forearm"
         self.wrist = wrist
         self.hand = hand

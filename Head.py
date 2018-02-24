@@ -16,13 +16,13 @@ class Head(object):
 
     def __init__(self, x_servo, y_servo):
         """ Initialize all Head Servos and look forward """
-        if x_servo is None or y_servo is None
-            raise "Could not initialize Head")
+        if x_servo is None or y_servo is None:
+            raise Exception("Could not initialize Head")
         self.x_servo = x_servo
         self.y_servo = y_servo
-        self.initialize()
+        self.__initialize()
 
-    def initialize(self):
+    def __initialize(self):
         """
         Make head look straight forward x and y-axis
         """

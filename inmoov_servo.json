@@ -111,5 +111,29 @@
         "notes": [
             "default postion down"
         ]
+    },
+        {
+        "id":14 ,
+        "body_part": "head_y",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 200,
+        "max_pulse": 525,
+        "default_angle": -90,
+        "notes": [
+            "default postion down"
+        ]
+    },
+        {
+        "id":15 ,
+        "body_part": "head_x",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 200,
+        "max_pulse": 525,
+        "default_angle": -90,
+        "notes": [
+            "default postion down"
+        ]
     }
 ]

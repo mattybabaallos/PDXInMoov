@@ -53,6 +53,9 @@ class Servo(object):
 
     def rotate(self, degree):
         """ Rotate to the specified degrees """
+        if degree < self.min_degree or degree > self.max_degree:
+        #if  self.min_degree > degree > self.max_degree:
+            raise ValueError("Degree is out of bound")
         try:
             pulse = self.degrees_to_pulse(degree)
             set_pwm(self.shield_id,self.channel, 0, pulse)

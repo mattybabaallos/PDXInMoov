@@ -6,52 +6,69 @@ Authors:
     Brett Creeley
     Matty Baba Allos
 """
+import json
+from Arm import Arm
+from Servo import Servo
 from Head import Head
-from Torso import Torso
+from Hand import Hand
 from Forearm import Forearm
+from Wrist import Wrist
+from Finger import Finger
+
+
+INMOOV_FILE = "inmoov_servo.json"
+servos = []
+
+def parse(obj):
+    if "body_part" not in obj:
+        raise Exception("Could not parse JSON object")
+    
+    if "disabled" in obj:
+        if obj["disabled"] is True:
+            return
+
+    servos.append(Servo(
+        obj["id"],
+        obj["min_pulse"],
+        obj["max_pulse"],
+        obj["min_degree"],
+        obj["max_degree"],
+        obj["body_part"]
+        ))
+
 
 class Inmoov(object):
     """
     This class are Inmoov!
     """
-    HEAD_X_CHANNEL  = 0
-    HEAD_Y_CHANNEL  = 1
-    TORSO_L_CHANNEL = 2
-    TORSO_R_CHANNEL = 3
-    L_WRIST_CHANNEL = 4
-    R_WRIST_CHANNEL = 5
-    L_PINKY_FINGER_CHANNEL = 6
-    L_RING_FINGER_CHANNEL  = 7
-    L_MID_FINGER_CHANNEL   = 8
-    L_INDEX_FINGER_CHANNEL = 9
-    L_THUMB_CHANNEL        = 10
-    R_PINKY_FINGER_CHANNEL = 11
-    R_RING_FINGER_CHANNEL  = 12
-    R_MID_FINGER_CHANNEL   = 13
-    R_INDEX_FINGER_CHANNEL = 14
-    R_THUMB_CHANNEL        = 15
-
-    HEAD_X_SERVO = Servo(0, servo_min, servo_max, min_degree, max_degree)
-
-
     def __init__(self):
         """
         Build all of Inmoov's parts.
         """
-        self.head = Head(self.HEAD_X_CHANNEL, self.HEAD_Y_CHANNEL)
-        self.torso = Torso(self.TORSO_L_CHANNEL, self.TORSO_R_CHANNEL)
-        """
-        Todo: Move the Forearm objects into the Arm class (unimplemented)
-        """
-        self.left_forearm = Forearm(self.L_PINKY_FINGER_CHANNEL,
-                                    self.L_RING_FINGER_CHANNEL,
-                                    self.L_MID_FINGER_CHANNEL,
-                                    self.L_INDEX_FINGER_CHANNEL,
-                                    self.L_THUMB_CHANNEL,
-                                    self.L_WRIST_CHANNEL)
-        self.right_forearm = Forearm(self.R_PINKY_FINGER_CHANNEL,
-                                     self.R_RING_FINGER_CHANNEL,
-                                     self.R_MID_FINGER_CHANNEL,
-                                     self.R_INDEX_FINGER_CHANNEL,
-                                     self.R_THUMB_CHANNEL,
-                                     self.R_WRIST_CHANNEL)
+      
+        #open the file json file
+        with open(INMOOV_FILE) as json_file:
+            json.load(json_file,object_hook=parse)
+
+
+
+        self.head = Head(filter(lambda x: x.name == "head_x" ,servos)[0],
+                filter(lambda x: x.name == "head_y" ,servos)[0])
+
+        self.right_wrist = Wrist(filter(lambda x: x.name == "left_wrist" ,servos)[0])
+
+
+        self.right_hand = Hand(
+            Finger(filter(lambda x: x.name == "right_pinky" ,servos)[0]),
+            Finger(filter(lambda x: x.name == "right_ring" ,servos)[0]),
+            Finger(filter(lambda x: x.name == "right_mid" ,servos)[0]),
+            Finger(filter(lambda x: x.name == "right_index" ,servos)[0]),
+            Finger(filter(lambda x: x.name == "right_thumb" ,servos)[0])
+        )
+
+        self.right_forearm = Forearm(self.right_hand,self.right_wrist)
+
+
+    def off(self):
+        """Truns InMoov off"""
+        self.right_forearm.off()

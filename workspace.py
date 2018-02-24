@@ -4,34 +4,19 @@
 import json
 from Servo import Servo
 import time
+from Wrist import Wrist
+from Inmoov import Inmoov
 
 
-json_data = None
-servos= []
-def parse(obj):
-    if "body_part" not in obj:
-        raise Exception("Could not parse JSON object")
-        return
-    
-    if "disabled" in obj:
-        if obj["disabled"] is True:
-            return
+inmo = Inmoov()
+inmo.head.move_x(-90)
+time.sleep(0.5)
+inmo.head.move_x(90)
+time.sleep(0.5)
+inmo.head.move_x(0)
+time.sleep(0.5)
 
-    servos.append(Servo(
-        obj["id"],
-        obj["min_pulse"],
-        obj["max_pulse"],
-        obj["min_degree"],
-        obj["max_degree"],
-        obj["body_part"]
-        ))
+inmo.right_forearm.hand.pinky_finger.bend(30)
+time.sleep(2)
+inmo.off()
 
-with open("inmoov_servo.json") as json_file:
-    json_data = json.load(json_file,object_hook=parse)
-
-
-print servos[0].channel ,servos[0].shield_id
-
-servos[0].rotate(10)
-time.sleep(1)
-servos[0].off()
