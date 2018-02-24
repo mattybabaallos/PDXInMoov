@@ -14,6 +14,7 @@ from Hand import Hand
 from Forearm import Forearm
 from Wrist import Wrist
 from Finger import Finger
+from Shoulder import Shoulder
 
 
 INMOOV_FILE = "inmoov_servo.json"
@@ -67,8 +68,9 @@ class Inmoov(object):
         )
 
         self.right_forearm = Forearm(self.right_hand,self.right_wrist)
-
+       # self.shoulder = Shoulder(filter(lambda x: x.name == "right_shoulder" ,servos)[0])
 
     def off(self):
         """Truns InMoov off"""
         self.right_forearm.off()
+        self.head.off()

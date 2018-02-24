@@ -112,8 +112,18 @@
             "default postion down"
         ]
     },
-        {
-        "id":14 ,
+    {
+        "id": 9,
+        "body_part": "right_shoulder",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 200,
+        "max_pulse": 525,
+        "default_angle": -90,
+        "notes": []
+    },
+    {
+        "id": 14,
         "body_part": "head_y",
         "min_degree": -90,
         "max_degree": 90,
@@ -124,16 +134,89 @@
             "default postion down"
         ]
     },
-        {
-        "id":15 ,
+    {
+        "id": 15,
         "body_part": "head_x",
         "min_degree": -90,
         "max_degree": 90,
         "min_pulse": 200,
-        "max_pulse": 525,
+        "max_pulse": 500,
         "default_angle": -90,
         "notes": [
             "default postion down"
         ]
+    },
+    {
+        "id": 16,
+        "body_part": "left_shoulder",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 304,
+        "max_pulse": 525,
+        "default_angle": 90,
+        "notes": []
+    },
+    {
+        "id": 17,
+        "body_part": "left_twist",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 200,
+        "max_pulse": 550,
+        "default_angle": 90,
+        "notes": []
+    }
+    ,
+    {
+        "id": 18,
+        "body_part": "left_ring",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 105,
+        "max_pulse": 515,
+        "default_angle": 90, 
+        "notes": ["I think this is flipped"]
+    }
+
+        ,
+    {
+        "id": 19,
+        "body_part": "left_middle",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 140,
+        "max_pulse": 520,
+        "default_angle": 90, 
+        "notes": []
+    }        ,
+    {
+        "id": 20,
+        "body_part": "left_index",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 140,
+        "max_pulse": 535,
+        "default_angle": 90, 
+        "notes": []
+    }        ,
+    {
+        "id": 21,
+        "body_part": "left_thumb",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 140,
+        "max_pulse": 565,
+        "default_angle": 90, 
+        "notes": []
+    }    ,
+    {
+        "id": 21,
+        "body_part": "left_pinck",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 110,
+        "max_pulse": 505,
+        "default_angle": 90, 
+        "notes": []
     }
 ]
