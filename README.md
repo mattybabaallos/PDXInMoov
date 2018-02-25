@@ -1,2 +1,2 @@
-# ECE478InMoov
-Repository used to store any work done on our InMoov project
+# PDXInMoov
+Let's get InMoov'n at Portland State University!
