@@ -115,11 +115,11 @@
     {
         "id": 9,
         "body_part": "right_shoulder",
-        "min_degree": -90,
+        "min_degree": -0,
         "max_degree": 90,
-        "min_pulse": 200,
+        "min_pulse": 272,
         "max_pulse": 525,
-        "default_angle": -90,
+        "default_angle": -50,
         "notes": []
     },
     {

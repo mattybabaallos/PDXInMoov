@@ -32,8 +32,8 @@ servo135 = determineServoPulse(1900, 50)
 pwm = PWM(0x40)
 pwm.setPWMFreq(50)
 
-servoMin = servoMin -95
-servoMax = servoMax -10
+servoMin = servoMin
+servoMax = servoMax
 
 print "ServoMin = ", servoMin 
 print "ServoMax = ", servoMax 

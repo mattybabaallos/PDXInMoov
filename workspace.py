@@ -5,11 +5,12 @@
 import time
 from Wrist import Wrist
 from Inmoov import Inmoov
-import Calibrate_Servo as c
+#import Calibrate_Servo as c
+from Shoulder import Shoulder as s
+from Servo import Servo
 
-c.head_down()
-time.sleep(10)
-
-
+servo = Servo(2,272,490,-90,90,"shoulder")
+servo.rotate(90)
+#time.sleep(3)
+#servo.off()
 #c.off()
-
