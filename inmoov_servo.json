@@ -127,7 +127,7 @@
         "max_degree": 90,
         "min_pulse": 272,
         "max_pulse": 525,
-        "default_angle": -50,
+        "default_angle": -90,
         "notes": ["degress are flipped"]
     },
     {
