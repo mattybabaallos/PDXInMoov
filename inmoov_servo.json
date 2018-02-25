@@ -101,26 +101,34 @@
         ]
     },
     {
-        "id": 8,
-        "body_part": "right_elbow",
+        "id": 9,
+        "body_part": "right_shoulder_flexion",
         "min_degree": -90,
         "max_degree": 90,
         "min_pulse": 125,
         "max_pulse": 300,
         "default_angle": -90,
-        "notes": [
-            "default postion down"
-        ]
+        "notes": ["Elbow"]
     },
     {
-        "id": 9,
-        "body_part": "right_shoulder",
-        "min_degree": -0,
+        "id": 10,
+        "body_part": "right_shoulder_abduction",
+        "min_degree": -90,
         "max_degree": 90,
         "min_pulse": 272,
         "max_pulse": 525,
         "default_angle": -50,
         "notes": []
+    },
+    {
+        "id": 11,
+        "body_part": "right_shoulder_rotation",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 272,
+        "max_pulse": 525,
+        "default_angle": -50,
+        "notes": ["degress are flipped"]
     },
     {
         "id": 14,
