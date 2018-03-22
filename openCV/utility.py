@@ -24,8 +24,12 @@ def detect_face(img):
  
     #if no faces are detected then return original img
     if (len(faces) == 0):
-        return gray, (0, 0, 0, 0)
+        face_cascade = cv2.CascadeClassifier('opencv-files/lbpcascade_profileface.xml')
+        faces = face_cascade.detectMultiScale(gray, scaleFactor=1.2, minNeighbors=5);
     
+    if (len(faces) == 0):
+        return gray,(0,0,0,0)
+
     #under the assumption that there will be only one face,
     #extract the face area
     (x, y, w, h) = faces[0]
