@@ -144,8 +144,8 @@ def predict(test_img):
     #draw name of predicted person
     draw_text(img, label_text, rect[0], rect[1]-5)
     
-    print("label_text ", label_text)
-    print("label ", label)
+    #print("label_text ", label_text)
+    #print("label ", label)
     if confidence < 40:
       print("test")
       return img, "none", 0
