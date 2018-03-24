@@ -147,7 +147,7 @@ def predict(test_img):
     #print("label_text ", label_text)
     #print("label ", label)
     if confidence < 40:
-      print("test")
+      #print("test")
       return img, "none", 0
 
     return img, label_text, label
