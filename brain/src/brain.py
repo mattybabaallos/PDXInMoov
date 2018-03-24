@@ -2,17 +2,29 @@
 
 import rospy
 from std_msgs.msg import Int16
+from sensor_msgs.msg import CompressedImage
 
-def send_body():
-    rospy.init_node('brain', anonymous=True)
-    rate = rospy.Rate(10) # 10hz
-    pub = rospy.Publisher('brain', Int16, queue_size=10)
-    while not rospy.is_shutdown():
-        pub.publish(1)
-        rate.sleep()
+
+class brain:
+   def __init__(self):
+       self.pub = rospy.Publisher('brain', Int16, queue_size=10)
+       self.subscriber = rospy.Subscriber("/raspicam_node/image/compressed", CompressedImage, self.callback,  queue_size =1)
+
+
+   def callback(self,msg):
+       rospy.loginfo("got an image")
+       #call openCV work here
+       self.pub.publish(1)
+       #this is 1 is the motion ID InMoov will do
+
+def main():
+   rospy.init_node('brain', anonymous=True)
+   b =brain()
+   try:
+       rospy.spin()
+   except KeyboardInterrupt:
+       rospy.loginfo("Inmoov brain is dead")
 
 if __name__ == '__main__':
-    try:
-        send_body()
-    except rospy.ROSInterruptException:
-        pass
+ main()
+
