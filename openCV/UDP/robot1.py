@@ -13,7 +13,7 @@ class MyUDPHandler(SocketServer.BaseRequestHandler):
 	# This tells the robot to do whatever is in the text file,  following the format
 	# of motion script.
 	posture_file = open("command_file.txt", "w")
-	posture_file.write(str(data))
+	posture_file.write(str(data.decode('utf-8')))
 	posture_file.close()
   # Replace ./project with ./program to run.
 	subprocess.Popen(["./project", "./command_file.txt"])
