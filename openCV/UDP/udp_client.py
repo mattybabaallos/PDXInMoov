@@ -3,7 +3,7 @@ import sys
 
 def main():
 	stand_page_number = 132
-	command_sent = 0
+	command_sent = 1
 	#posture_file = open("../cat_robot_posture.txt", "r")
 	robot_info = {}
 	command_list = {}
@@ -18,15 +18,15 @@ def main():
 			temp['port'] = int(parts[2])
 			robot_info[parts[0]] = temp
 	
-	print(robot_info)
-	print("info above")
+	#print(robot_info)
+	#print("info above")
 	previous_data = 99
 	
 	response = "a"
-	print(robot_info)
-	print(temp['host'])
-	print(temp['port'])
-	print("test")
+	#print(robot_info)
+	#print(temp['host'])
+	#print(temp['port'])
+	#print("test")
 	# result.txt is the output file of the OpenCV C++ program, it will
 	# contain the command number to be sent over to the robot
 	while response != "q":
@@ -34,11 +34,15 @@ def main():
 		data = command_file.readline()
 		command_file.close()
 		#print(data)
+		#print(previous_data)
 
 		try:
-			if int(data) != previous_data:
+			if data != previous_data:
 				command_sent = 0
+				print(data)
+				print(previous_data)
 				previous_data = data
+
 				#print(data)
 		except:
 			pass
