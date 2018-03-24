@@ -56,7 +56,7 @@ import time
 # In[2]:
 
 #there is no label 0 in our training data so subject name for index/label 0 is empty
-subjects = ["", "Ramiz Raja", "Elvis Presley", "Max"]
+subjects = ["", "Matty Baba Allos", "Chad Coates", "Max Schweitzer", "Armaan Roshani", "Kestutis Sultanas"]
 
 
 # ### Prepare training data
@@ -136,13 +136,39 @@ def predict(test_img):
     label, confidence = face_recognizer.predict(face)
     #get name of respective label returned by face recognizer
     label_text = subjects[label]
+    #print("Label %d", label)
+    #print("Confidence %d", confidence)
     
     #draw a rectangle around face detected
     draw_rectangle(img, rect)
     #draw name of predicted person
     draw_text(img, label_text, rect[0], rect[1]-5)
     
-    return img
+    print("label_text ", label_text)
+    print("label ", label)
+    if confidence < 40:
+      print("test")
+      return img, "none", 0
+
+    return img, label_text, label
+
+def action(person):
+    if person == "Max Schweitzer":
+      action = 0
+    elif person == "Matty Baba Allos":
+      action = 1
+    elif person == "Armaan Roshani":
+      action = 2
+    elif person == "Chad Coates":
+      action = 3
+    elif person == "Kestutis Sultanas":
+      action = 4
+    elif person == "none":
+      action = 99
+    else:
+      action = 99
+    return action
+    
 
 # Now that we have the prediction function well defined, next step is to actually call this function on our test images and display those test images to see if our face recognizer correctly recognized them. So let's do it. This is what we have been waiting for. 
 
@@ -154,18 +180,20 @@ print("Read trained model")
 face_recognizer.read('trained.xml')
 
 #print("Predicting images...")
-
 # initialize the video stream and allow the cammera sensor to warmup
 vs = VideoStream(0).start()
 time.sleep(2.0)
- 
+
+person = 0
+previous_person = 0
 # loop over the frames from the video stream
 while True:
   # grab the frame from the threaded video stream and resize it
   # to have a maximum width of 400 pixels
   frame = vs.read()
   frame = imutils.resize(frame, width=400, height=500)  
-  frame_predict = predict(frame)
+  previous_person = person
+  frame_predict, person, label = predict(frame)
 
   # draw the timestamp on the frame
   timestamp = datetime.datetime.now()
@@ -176,10 +204,19 @@ while True:
   # show the frame
   cv2.imshow('Feed', frame_predict)
   key = cv2.waitKey(1) & 0xFF
+
+  
+  if ((person != previous_person)):
+    result_file = open("result.txt", "w")
+    result = action(person)
+    result_file.write(str(result))
+    result_file.close()
+
  
   # if the `q` key was pressed, break from the loop
   if key == ord("q"):
     break
+  
  
 # do a bit of cleanup
 cv2.destroyAllWindows()
@@ -187,5 +224,8 @@ vs.stop()
 
 sys.exit()
 
-
-
+# Write to the file code.
+#	posture_file = open("posture_file.txt", "w")
+#	posture_file.write(str(data))
+#	posture_file.close()
+#

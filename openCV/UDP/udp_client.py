@@ -9,7 +9,7 @@ def main():
 	command_list = {}
 	# Open jimmy info file and create dictionary
 	# Currently this project only uses one robot
-	with open("jimmy_client_info.txt","r") as fin:
+	with open("robot_info.txt","r") as fin:
 		for line in fin:
 			line = line.strip('\n')
 			parts = line.split(',')
@@ -19,19 +19,19 @@ def main():
 			robot_info[parts[0]] = temp
 	
 	print robot_info
-	previous_data = 1
+	previous_data = 99
 	
 	response = "a"
 
-	# cat_robot_posture.txt is the output file of the OpenCV C++ program, it will
-	# either have a 0 or 1 in it, for id the robot is laying down or standing respectively
+	# result.txt is the output file of the OpenCV C++ program, it will
+	# contain the command number to be sent over to the robot
 	while response != "q":
-		posture_file = open("../cat_robot_posture.txt", "r")
-		data = posture_file.readline()
-		posture_file.close()
+		command_file = open("result.txt", "r")
+		data = command_file.readline()
+		command_file.close()
 
 		try:
-			if int(data) == 1:
+			if int(data) != previous_data:
 				command_sent = 0
 				previous_data = data
 		except:
@@ -43,12 +43,12 @@ def main():
 		
 		try:
 			# Try to open a UDP connection, and send the command to the robot
-			if int(command_sent) == 0 and int(data) == 0:
+			if int(command_sent) == 0:
 				sock = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 				# 3 is the command used by Motion script to play a page number from RME,
 				# this could be extended to send other kinds of commands as well, such as walk
 				# or turn. Assign stand_page_number above for what page number you want to send over
-				command = "3 %d" % (stand_page_number)
+				command = "%d" % (data)
 				sock.sendto(command, (HOST, PORT))
 				print HOST
 				print PORT

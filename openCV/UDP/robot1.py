@@ -12,14 +12,15 @@ class MyUDPHandler(SocketServer.BaseRequestHandler):
 	# motion script with that file as a command line argument.
 	# This tells the robot to do whatever is in the text file,  following the format
 	# of motion script.
-	posture_file = open("posture_file.txt", "w")
+	posture_file = open("command_file.txt", "w")
 	posture_file.write(str(data))
 	posture_file.close()
-	subprocess.Popen(["./project", "./posture_file.txt"])
+  # Replace ./project with ./program to run.
+	subprocess.Popen(["./project", "./command_file.txt"])
 		
 
 if __name__ == "__main__":
-    print "Server for this jimmy has started"
+    print "Server for this robot has started"
 	# This will need to be changed to whatever your robot's IP address is
     HOST, PORT = "192.168.1.101", 3100
     server = SocketServer.UDPServer((HOST, PORT), MyUDPHandler)
