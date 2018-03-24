@@ -58,6 +58,7 @@ class Servo(object):
             raise ValueError("Degree is out of bound")
         try:
             pulse = self.degrees_to_pulse(degree)
+            print "current pluse", pulse
             set_pwm(self.shield_id,self.channel, 0, pulse)
         except ValueError as exception:
             print(exception)

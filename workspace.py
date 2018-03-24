@@ -1,22 +1,16 @@
 #This file is sandbox workspace to try code in
 
 
-import json
-from Servo import Servo
+
 import time
 from Wrist import Wrist
 from Inmoov import Inmoov
+#import Calibrate_Servo as c
+from Shoulder import Shoulder as s
+from Servo import Servo
 
-
-inmo = Inmoov()
-inmo.head.move_x(-90)
-time.sleep(0.5)
-inmo.head.move_x(90)
-time.sleep(0.5)
-inmo.head.move_x(0)
-time.sleep(0.5)
-
-inmo.right_forearm.hand.pinky_finger.bend(30)
-time.sleep(2)
-inmo.off()
-
+servo = Servo(2,272,490,-90,90,"shoulder")
+servo.rotate(90)
+#time.sleep(3)
+#servo.off()
+#c.off()

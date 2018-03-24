@@ -32,23 +32,36 @@ servo135 = determineServoPulse(1900, 50)
 pwm = PWM(0x40)
 pwm.setPWMFreq(50)
 
-print "ServoMin = ", servoMin
-print "ServoMax = ", servoMax
+servoMin = servoMin
+servoMax = servoMax
 
-servo = Servo(0,0,servoMin,servoMax)
-servo.rotate(10)
-servo.off()
-
+print "ServoMin = ", servoMin 
+print "ServoMax = ", servoMax 
 
 def head_up():
      '''Move head up'''
      print("head up")
+     pwm.setPWM(15, 0, servoMax)
      pwm.setPWM(0, 0, servoMax)
 
+def head_down():
+     print("head down")
+     pwm.setPWM(15, 0, servoMin)
+
+     pwm.setPWM(0, 0, servoMin)
 
 def off():
     '''Move head up'''
+    pwm.setPWM(15, 0, 0)
     pwm.setPWM(0, 0, 0)
+
+
+
+head_up()
+time.sleep(1)
+
+
+
 
 # def head_down():
 #     '''Move head down'''
