@@ -35,8 +35,8 @@ pwm.setPWMFreq(50)
 servoMin = servoMin
 servoMax = servoMax
 
-print "ServoMin = ", servoMin 
-print "ServoMax = ", servoMax 
+print "ServoMin = ", servoMin
+print "ServoMax = ", servoMax
 
 def head_up():
      '''Move head up'''
@@ -99,7 +99,7 @@ time.sleep(1)
 #     pwm.setPWM(1, 0, servoMid)
 
 # def initialize():
-#     '''Initailize to all centered locations'''
+#     '''Initialize to all centered locations'''
 #     head_mid_x()
 #     head_mid_y()
 #     lean_center()

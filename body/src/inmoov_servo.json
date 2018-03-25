@@ -219,7 +219,7 @@
     }    ,
     {
         "id": 21,
-        "body_part": "left_pinck",
+        "body_part": "left_pinky",
         "min_degree": -90,
         "max_degree": 90,
         "min_pulse": 110,

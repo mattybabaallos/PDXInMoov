@@ -15,6 +15,8 @@ class Servo(object):
         max_pulse: The maximum pulse the Servo allows
         min_degree: The minimum degree the Servo can rotate to
         max_degree: The maximum degree the Servo can rotate to
+        flipped: If the servo is works the opposite direcition
+        name: The name of the servo
     """
 
     def __init__(self,
@@ -23,11 +25,12 @@ class Servo(object):
          max_pulse,
          min_degree=None,
          max_degree=None,
+         flipped = None,
          name="servo"
          ):
-        self.id = id 
+        self.id = id
         self.channel = self._id_to_channel(id)
-        self.shield_id = self._id_to_sheild_id(id)
+        self.shield_id = self._id_to_shield_id(id)
         self.min_pulse = min_pulse
         self.max_pulse = max_pulse
         self.min_degree = min_degree
@@ -36,18 +39,18 @@ class Servo(object):
 
     def _id_to_channel(self,id):
         """Given the id of the servo starting from 0 and because there
-        are only 16 channels on hat we can know which channel the servo 
+        are only 16 channels on hat we can know which channel the servo
         is connected into if we take the mod of the id. For example,
         a servo with id 34 is connected to channel 2 because 34%16 gives
         2 because 16 fits into 34 two times and we left 2"""
-        return id % 16 
+        return id % 16
 
-    def _id_to_sheild_id(self,id):
+    def _id_to_shield_id(self,id):
         """Given the id of the servo starting from 0 and because there
-        are only 16 channels on hat we can know which sheild the servo is pluged into
-        if we divide the id by 16 and roudning to nearest integer.
-        for example if we have servo plugged into channel 33 
-        we know it's on sheild 2, counting from 0, because 33/16=2.06
+        are only 16 channels on hat we can know which shield the servo is plugged into
+        if we divide the id by 16 and rounding to nearest integer.
+        for example if we have servo plugged into channel 33
+        we know it's on shield 2, counting from 0, because 33/16=2.06
         we round to the nearest int and we get a 2"""
         return int(round(id / 16)) #Make sure it's an int
 
@@ -58,7 +61,7 @@ class Servo(object):
             raise ValueError("Degree is out of bound")
         try:
             pulse = self.degrees_to_pulse(degree)
-            print "current pluse", pulse
+            print "current pulse", pulse
             set_pwm(self.shield_id,self.channel, 0, pulse)
         except ValueError as exception:
             print(exception)

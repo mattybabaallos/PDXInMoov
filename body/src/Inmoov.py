@@ -86,7 +86,7 @@ class Inmoov(object):
 
 
     def off(self):
-        """Truns InMoov off"""
+        """Turns InMoov off"""
         self.head.off()
         self.right_shoulder.off()
         self.right_forearm.off()

@@ -29,7 +29,7 @@ class Torso(object):
         """
         Make Inmoov lean based on the specified degree.
         - -90 degrees leans Inmoov all the way right.
-        -   0 degrees centers Invmoov's Torso.
+        -   0 degrees centers Inmoov's Torso.
         -  90 degrees leans Inmoov all the way left.
         """
         self.l_servo.rotate(degrees)
