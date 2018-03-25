@@ -6,6 +6,7 @@ Authors:
     Matty Baba Allos
 """
 from Config import set_pwm
+import warnings
 
 class Servo(object):
     """
@@ -15,7 +16,6 @@ class Servo(object):
         max_pulse: The maximum pulse the Servo allows
         min_degree: The minimum degree the Servo can rotate to
         max_degree: The maximum degree the Servo can rotate to
-        flipped: If the servo is works the opposite direcition
         name: The name of the servo
     """
 
@@ -25,7 +25,6 @@ class Servo(object):
          max_pulse,
          min_degree=None,
          max_degree=None,
-         flipped = None,
          name="servo"
          ):
         self.id = id
@@ -56,9 +55,6 @@ class Servo(object):
 
     def rotate(self, degree):
         """ Rotate to the specified degrees """
-        if degree < self.min_degree or degree > self.max_degree:
-        #if  self.min_degree > degree > self.max_degree:
-            raise ValueError("Degree is out of bound")
         try:
             pulse = self.degrees_to_pulse(degree)
             print "current pulse", pulse
@@ -84,8 +80,10 @@ class Servo(object):
 
         # Check for boundary values
         if pulse < self.min_pulse:
+            warnings.warn("Degree is out of range")
             return self.min_pulse
         elif pulse > self.max_pulse:
+            warnings.warn("Degree is out of range")
             return self.max_pulse
         else:
             return pulse

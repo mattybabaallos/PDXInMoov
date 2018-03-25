@@ -51,8 +51,8 @@
     {
         "id": 4,
         "body_part": "right_ring",
-        "min_degree": -90,
-        "max_degree": 90,
+        "min_degree": 90,
+        "max_degree": -90,
         "min_pulse": 250,
         "max_pulse": 575,
         "default_angle": 90,

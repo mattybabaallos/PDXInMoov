@@ -70,6 +70,8 @@ class Inmoov(object):
             filter(lambda x: x.name == "right_shoulder_abduction" ,servos)[0],
             filter(lambda x: x.name == "right_shoulder_flexion" ,servos)[0])
 
+        self.right_arm = Arm(self.right_forearm,self.right_shoulder)
+
         #Left side
         self.left_wrist = Wrist(filter(lambda x: x.name == "left_wrist" ,servos)[0])
         self.left_hand = Hand(
@@ -84,12 +86,10 @@ class Inmoov(object):
             filter(lambda x: x.name == "left_shoulder_abduction" ,servos)[0],
             filter(lambda x: x.name == "left_shoulder_flexion" ,servos)[0])
 
+        self.left_arm = Arm(self.left_forearm,self.left_shoulder)
 
     def off(self):
         """Turns InMoov off"""
         self.head.off()
-        self.right_shoulder.off()
-        self.right_forearm.off()
-        self.left_shoulder.off()
-        self.left_forearm.off()
-        self.head.off()
+        self.left_arm.off()
+        self.right_arm.off()

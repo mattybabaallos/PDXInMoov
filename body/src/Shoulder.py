@@ -29,7 +29,6 @@ class Shoulder(object):
         self.rotation_servo.rotate(0)
 
     def flex(self, degree):
-        """TODO maybe check degrees """
         self.flexion_servo.rotate(degree)
 
     def extend(self, degree):
