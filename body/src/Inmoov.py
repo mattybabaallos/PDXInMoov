@@ -7,6 +7,7 @@ Authors:
     Matty Baba Allos
 """
 import json
+import time
 from Arm import Arm
 from Servo import Servo
 from Head import Head
@@ -88,6 +89,32 @@ class Inmoov(object):
             filter(lambda x: x.name == "left_shoulder_flexion" ,servos)[0])
 
         self.left_arm = Arm(self.left_forearm,self.left_shoulder)
+
+        self.initialize()
+
+    def do_motion(self, motion_id):
+        """
+            Make InMoov do one of these motions
+        """
+        if motion_id == 0:
+                self.wave()
+        elif motion_id == 1:
+                self.thumbs_down()
+        elif motion_id == 2:
+                self.goodbye()
+
+
+    def wave(self):
+        self.left_arm.forearm.hand.straighten_all_fingers()
+        self.left_arm.shoulder.flex(60)
+
+    def thumbs_down(self):
+        self.left_arm.forearm.hand.make_fist()
+        time.sleep(1)
+        self.left_arm.forearm.hand.thumb.bend_max()
+        self.left_arm.forearm.wrist.rotate(60)
+    def goodbye(self):
+        pass
 
     def initialize(self):
         """initializes InMoov"""
