@@ -20,10 +20,10 @@ class Torso(object):
             raise Exception("Could not initialize Torso")
         self.l_servo = left_servo
         self.r_servo = right_servo
-        self.lean(0)  # Make Torso straight
 
     def initialize(self):
-        self.lean(0)
+        self.l_servo.initialize()
+        self.r_servo.initialize()
 
     def lean(self, degrees):
         """

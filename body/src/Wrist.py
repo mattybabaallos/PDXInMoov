@@ -24,6 +24,9 @@ class Wrist(object):
             raise Exception("Could not initiate wrist")
         self.servo = servo
 
+    def initialize(self):
+        self.servo.initialize()
+
     def rotate(self, degree):
         """ Rotate this Wrist the desired degree """
         self.servo.rotate(degree)

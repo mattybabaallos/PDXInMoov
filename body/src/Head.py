@@ -20,14 +20,13 @@ class Head(object):
             raise Exception("Could not initialize Head")
         self.x_servo = x_servo
         self.y_servo = y_servo
-        self.__initialize()
 
-    def __initialize(self):
+    def initialize(self):
         """
         Make head look straight forward x and y-axis
         """
-        self.x_servo.rotate(0)
-        self.y_servo.rotate(0)
+        self.x_servo.initialize()
+        self.y_servo.initialize()
 
     def move_y(self, degrees):
         """

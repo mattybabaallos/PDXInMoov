@@ -34,6 +34,7 @@ def parse(obj):
         obj["max_pulse"],
         obj["min_degree"],
         obj["max_degree"],
+        obj["default_angle"],
         obj["body_part"]
         ))
 
@@ -87,6 +88,12 @@ class Inmoov(object):
             filter(lambda x: x.name == "left_shoulder_flexion" ,servos)[0])
 
         self.left_arm = Arm(self.left_forearm,self.left_shoulder)
+
+    def initialize(self):
+        """initializes InMoov"""
+        self.head.initialize()
+        self.left_arm.initialize()
+        self.right_arm.initialize()
 
     def off(self):
         """Turns InMoov off"""

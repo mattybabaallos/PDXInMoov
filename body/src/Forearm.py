@@ -21,6 +21,10 @@ class Forearm(object):
         self.wrist = wrist
         self.hand = hand
 
+    def initialize(self):
+        self.wrist.initialize()
+        self.hand.initialize()
+
     def off(self):
         self.wrist.off()
         self.hand.off()

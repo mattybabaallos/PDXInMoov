@@ -19,6 +19,9 @@ class Finger(object):
 
         self.servo = servo
 
+    def initialize(self):
+        self.servo.initialize()
+
     def bend_max(self):
         """
         Bend the Finger the max amount
