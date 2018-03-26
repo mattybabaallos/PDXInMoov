@@ -8,7 +8,7 @@
         "max_pulse": 420,
         "default_angle": 90,
         "notes": [
-            "default postion open",
+            "default position open",
             "the more negative the more bent the finger"
         ]
     },
@@ -17,11 +17,11 @@
         "body_part": "right_thumb",
         "min_degree": -90,
         "max_degree": 90,
-        "min_pulse": 225,
+        "min_pulse": 220,
         "max_pulse": 575,
         "default_angle": 90,
         "notes": [
-            "default postion open"
+            "default position open"
         ]
     },
     {
@@ -33,7 +33,7 @@
         "max_pulse": 450,
         "default_angle": 90,
         "notes": [
-            "default postion open"
+            "default position open"
         ]
     },
     {
@@ -45,7 +45,7 @@
         "max_pulse": 500,
         "default_angle": 90,
         "notes": [
-            "default postion open"
+            "default position open"
         ]
     },
     {
@@ -57,7 +57,7 @@
         "max_pulse": 575,
         "default_angle": 90,
         "notes": [
-            "default postion open",
+            "default position open",
             "Flipped around compared to other fingers",
             "Needs to be looked internally and be tested again"
         ]
@@ -97,7 +97,7 @@
         "max_pulse": 450,
         "default_angle": -90,
         "notes": [
-            "default postion closed"
+            "default position closed"
         ]
     },
     {
@@ -117,7 +117,7 @@
         "max_degree": 90,
         "min_pulse": 272,
         "max_pulse": 525,
-        "default_angle": -50,
+        "default_angle": -90,
         "notes": []
     },
     {
@@ -127,8 +127,8 @@
         "max_degree": 90,
         "min_pulse": 272,
         "max_pulse": 525,
-        "default_angle": -90,
-        "notes": ["degress are flipped"]
+        "default_angle": -50,
+        "notes": ["degrees are flipped"]
     },
     {
         "id": 14,
@@ -139,7 +139,7 @@
         "max_pulse": 525,
         "default_angle": -90,
         "notes": [
-            "default postion down"
+            "default position down"
         ]
     },
     {
@@ -151,7 +151,7 @@
         "max_pulse": 500,
         "default_angle": -90,
         "notes": [
-            "default postion down"
+            "default position down"
         ]
     },
     {
@@ -182,7 +182,7 @@
         "max_degree": 90,
         "min_pulse": 105,
         "max_pulse": 515,
-        "default_angle": 90, 
+        "default_angle": 90,
         "notes": ["I think this is flipped"]
     }
 
@@ -194,7 +194,7 @@
         "max_degree": 90,
         "min_pulse": 140,
         "max_pulse": 520,
-        "default_angle": 90, 
+        "default_angle": 90,
         "notes": []
     }        ,
     {
@@ -204,7 +204,7 @@
         "max_degree": 90,
         "min_pulse": 140,
         "max_pulse": 535,
-        "default_angle": 90, 
+        "default_angle": 90,
         "notes": []
     }        ,
     {
@@ -214,17 +214,17 @@
         "max_degree": 90,
         "min_pulse": 140,
         "max_pulse": 565,
-        "default_angle": 90, 
+        "default_angle": 90,
         "notes": []
     }    ,
     {
         "id": 21,
-        "body_part": "left_pinck",
+        "body_part": "left_pinky",
         "min_degree": -90,
         "max_degree": 90,
         "min_pulse": 110,
         "max_pulse": 505,
-        "default_angle": 90, 
+        "default_angle": 90,
         "notes": []
     }
 ]

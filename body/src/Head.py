@@ -20,14 +20,13 @@ class Head(object):
             raise Exception("Could not initialize Head")
         self.x_servo = x_servo
         self.y_servo = y_servo
-        self.__initialize()
 
-    def __initialize(self):
+    def initialize(self):
         """
         Make head look straight forward x and y-axis
         """
-        self.x_servo.rotate(0)
-        self.y_servo.rotate(0)
+        self.x_servo.initialize()
+        self.y_servo.initialize()
 
     def move_y(self, degrees):
         """
@@ -42,7 +41,7 @@ class Head(object):
         """
         Move head to x-axis to the degree postion.
         - -90 degrees moves Inmoov's head all the way right.
-        -   0 degees makes Inmoov look forward.
+        -   0 degrees makes Inmoov look forward.
         -  90 degrees moves Inmoov's head all the way left.
         """
         self.x_servo.rotate(degrees)

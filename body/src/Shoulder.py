@@ -24,12 +24,11 @@ class Shoulder(object):
         """
         Make the arm in down postion
         """
-        self.flexion_servo.rotate(0)
-        self.abduction_servo.rotate(0)
-        self.rotation_servo.rotate(0)
+        self.flexion_servo.initialize()
+        self.abduction_servo.initialize()
+        self.rotation_servo.initialize()
 
     def flex(self, degree):
-        """TODO maybe check degrees """
         self.flexion_servo.rotate(degree)
 
     def extend(self, degree):

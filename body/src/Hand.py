@@ -21,9 +21,15 @@ class Hand(object):
         self.mid_finger = mid_finger
         self.index_finger = index_finger
         self.thumb = thumb_finger
-        """
-        TODO: Initialize to some value
-        """
+
+
+    def initialize(self):
+        self.pinky_finger.initialize()
+        self.ring_finger.initialize()
+        self.mid_finger.initialize()
+        self.index_finger.initialize()
+        self.thumb.initialize()
+
 
     def straighten_all_fingers(self):
         """ Straighten all fingers for waving/high-fiving/etc. """
