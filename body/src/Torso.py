@@ -20,16 +20,16 @@ class Torso(object):
             raise Exception("Could not initialize Torso")
         self.l_servo = left_servo
         self.r_servo = right_servo
-        self.lean(0)  # Make Torso straight
 
     def initialize(self):
-        self.lean(0)
+        self.l_servo.initialize()
+        self.r_servo.initialize()
 
     def lean(self, degrees):
         """
         Make Inmoov lean based on the specified degree.
         - -90 degrees leans Inmoov all the way right.
-        -   0 degrees centers Invmoov's Torso.
+        -   0 degrees centers Inmoov's Torso.
         -  90 degrees leans Inmoov all the way left.
         """
         self.l_servo.rotate(degrees)

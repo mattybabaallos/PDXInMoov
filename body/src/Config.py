@@ -20,7 +20,7 @@ MAX_CHANNEL = 15
 
 def set_pwm(shield_id, channel, pulse_on, pulse_off):
     """ Set the pwm for the channel specified """
-    
+
     """ Don't allow invalid channel values """
     if channel > MAX_CHANNEL or channel < MIN_CHANNEL :
         raise ValueError('Channel must be between 0 and 15 inclusive')

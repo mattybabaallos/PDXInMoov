@@ -22,10 +22,9 @@ class Arm(object):
         self.forearm = forearm
         self.shoulder = shoulder
 
-
-    #def up(self)
-
-    #def down(self)
+    def initialize(self):
+        self.forearm.initialize()
+        self.shoulder.initialize()
 
     def off(self):
         self.forearm.off()
