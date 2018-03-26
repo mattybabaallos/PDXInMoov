@@ -262,5 +262,27 @@
             "default position closed",
             "values Updated On:3/26/2018"
         ]
+    },
+    {
+        "id": 21,
+        "body_part": "right_torso",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 130,
+        "max_pulse": 470,
+        "default_angle": 0,
+        "notes": [
+        ]
+    },
+    {
+        "id": 22,
+        "body_part": "left_torso",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 130,
+        "max_pulse": 470,
+        "default_angle": 0,
+        "notes": [
+        ]
     }
 ]
