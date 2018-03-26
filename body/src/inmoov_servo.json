@@ -315,19 +315,19 @@
         "body_part": "right_torso",
         "min_degree": -90,
         "max_degree": 90,
-        "min_pulse": 130,
-        "max_pulse": 470,
+        "min_pulse": 140,
+        "max_pulse": 500,
         "default_angle": 0,
-        "notes": []
+        "notes": ["Both torso have to move at the same time","negative turns him left",""values Updated On:3/26/2018"]
     },
     {
         "id": 22,
         "body_part": "left_torso",
         "min_degree": -90,
         "max_degree": 90,
-        "min_pulse": 130,
-        "max_pulse": 470,
+        "min_pulse": 140,
+        "max_pulse": 500,
         "default_angle": 0,
-        "notes": []
+        "notes": ["negative turns him left","values Updated On:3/26/2018"]
     }
 ]
