@@ -55,7 +55,8 @@ class Inmoov(object):
 
 
 
-        self.head = Head(filter(lambda x: x.name == "head_x" ,servos)[0],
+        self.head = Head(
+                filter(lambda x: x.name == "head_x" ,servos)[0],
                 filter(lambda x: x.name == "head_y" ,servos)[0])
 
         #Right side
@@ -68,9 +69,12 @@ class Inmoov(object):
             Finger(filter(lambda x: x.name == "right_thumb" ,servos)[0])
         )
         self.right_forearm = Forearm(self.right_hand,self.right_wrist)
-        self.right_shoulder = Shoulder(filter(lambda x: x.name == "right_shoulder" ,servos)[0],
-            filter(lambda x: x.name == "right_shoulder_abduction" ,servos)[0],
+        self.right_shoulder = Shoulder(
             filter(lambda x: x.name == "right_shoulder_flexion" ,servos)[0])
+            filter(lambda x: x.name == "right_shoulder_abduction" ,servos)[0],
+            filter(lambda x: x.name == "right_shoulder_rotation_x" ,servos)[0],
+            filter(lambda x: x.name == "right_shoulder_rotation_y" ,servos)[0])
+
 
         self.right_arm = Arm(self.right_forearm,self.right_shoulder)
 
@@ -84,9 +88,11 @@ class Inmoov(object):
             Finger(filter(lambda x: x.name == "left_thumb" ,servos)[0])
         )
         self.left_forearm = Forearm(self.left_hand,self.left_wrist)
-        self.left_shoulder = Shoulder(filter(lambda x: x.name == "left_shoulder" ,servos)[0],
-            filter(lambda x: x.name == "left_shoulder_abduction" ,servos)[0],
+        self.left_shoulder = Shoulder(
             filter(lambda x: x.name == "left_shoulder_flexion" ,servos)[0])
+            filter(lambda x: x.name == "left_shoulder_abduction" ,servos)[0],
+            filter(lambda x: x.name == "left_shoulder_rotation_x" ,servos)[0],
+            filter(lambda x: x.name == "left_shoulder_rotation_y" ,servos)[0])
 
         self.left_arm = Arm(self.left_forearm,self.left_shoulder)
 
