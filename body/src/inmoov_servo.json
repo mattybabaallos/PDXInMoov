@@ -137,15 +137,58 @@
             "values Updated On:3/26/2018"
         ]
     },
+    
     {
-        "id": 10,
-        "body_part": "left_shoulder",
+        "id": 6,
+        "body_part": "left_shoulder_flexion",
         "min_degree": -90,
         "max_degree": 90,
-        "min_pulse": 304,
-        "max_pulse": 525,
-        "default_angle": 90,
-        "notes": []
+        "min_pulse": 220,
+        "max_pulse": 370,
+        "default_angle": -90,
+        "notes": [
+            "left Elbow",
+            "values Updated On:3/26/2018"
+        ]
+    },
+    {
+        "id": 7,
+        "body_part": "left_shoulder_abduction",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 250,
+        "max_pulse": 325,
+        "default_angle": -90,
+        "notes": [
+            "values Updated On:3/26/2018"
+        ]
+    },
+    {
+        "id": 8,
+        "body_part": "left_shoulder_rotation_x",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 330,
+        "max_pulse": 550,
+        "default_angle": -20,
+        "notes": [
+            "Lifts arm up",
+            "values Updated On:3/26/2018"
+        ]
+    },
+    {
+        "id": 9,
+        "body_part": "left_shoulder_rotation_y",
+        "min_degree": 90,
+        "max_degree": -90,
+        "min_pulse": 306,
+        "max_pulse": 471,
+        "default_angle": 20,
+        "notes": [
+            "rotate arm around itself",
+            "Flipped",
+            "values Updated On:3/26/2018"
+        ]
     },
     {
         "id": 12,
