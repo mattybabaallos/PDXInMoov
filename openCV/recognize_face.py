@@ -56,7 +56,7 @@ import time
 # In[2]:
 
 #there is no label 0 in our training data so subject name for index/label 0 is empty
-subjects = ["", "Matty Baba Allos", "Chad Coates", "Max Schweitzer", "Armaan Roshani", "Kestutis Sultanas"]
+subjects = ["", "Matty Baba Allos", "Max Schweitzer"]
 
 
 # ### Prepare training data

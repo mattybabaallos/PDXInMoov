@@ -24,10 +24,14 @@ import imutils
 import time
 
 
-subjects = ["", "Matty Baba Allos", "Chad Coates", "Max Schweitzer", "Armaan Roshani", "Kestutis Sultanas"]
+subjects = ["", "Matty Baba Allos", "Max Schweitzer"]
 
+count = 0;
 person = 0;
 previous_person = 0;
+sent = 0;
+new = 0;
+blip = 0;
 
 face_recognizer = cv2.face.LBPHFaceRecognizer_create()
 print("Read trained model")
@@ -48,6 +52,8 @@ def predict(test_img):
     #predict the image using our face recognizer 
     label, confidence = face_recognizer.predict(face)
     #get name of respective label returned by face recognizer
+    if (rect[0] == 0 and rect[1] == 0 and rect[2] == 0 and rect[3] == 0):
+      label = 0
     label_text = subjects[label]
     #print("Label %d", label)
     #print("Confidence %d", confidence)
@@ -92,6 +98,10 @@ class brain:
    def callback(self,msg):
        global person
        global previous_person
+       global count
+       global sent
+       global new
+       global blip
        rospy.loginfo("got an image")
        #call openCV work here
        #frame = imutils.resize(msg.data, width=400, height=500)  
@@ -107,12 +117,25 @@ class brain:
        cv2.imshow('Feed', frame_predict)
        key = cv2.waitKey(1) & 0xFF
 
-  
-       if ((person != previous_person)):
+       if (person == previous_person):
+         count += 1
+
+       if (person != previous_person):
+         count = 0
+         new = not new
+
+       #if ((person != previous_person) and (new == 1))
+
+       #print(person)
+       #print(previous_person)
+       if (((new == 0) and (count >= 20))):
          #result_file = open("../../result.txt", "w")
          result = action(person)
          #result_file.write(str(result))
          #result_file.close()
+         print(result)
+         count = 0
+         new = 1
          self.pub.publish(result)
 
 

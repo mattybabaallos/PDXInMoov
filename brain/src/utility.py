@@ -14,7 +14,7 @@ def detect_face(img):
     
     #load OpenCV face detector, I am using LBP which is fast
     #there is also a more accurate but slow Haar classifier
-    face_cascade = cv2.CascadeClassifier('opencv-files/lbhpcascade_frontalface.xml')
+    face_cascade = cv2.CascadeClassifier('opencv-files/lbpcascade_frontalface.xml')
 
     #let's detect multiscale (some images may be closer to camera than others) images
     #result is a list of faces
