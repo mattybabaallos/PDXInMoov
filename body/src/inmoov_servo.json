@@ -86,7 +86,7 @@
         ]
     },
     {
-        "id": 9,
+        "id": 6,
         "body_part": "right_shoulder_flexion",
         "min_degree": -90,
         "max_degree": 90,
@@ -99,7 +99,7 @@
         ]
     },
     {
-        "id": 10,
+        "id": 7,
         "body_part": "right_shoulder_abduction",
         "min_degree": -90,
         "max_degree": 90,
@@ -111,7 +111,7 @@
         ]
     },
     {
-        "id": 11,
+        "id": 8,
         "body_part": "right_shoulder_rotation_x",
         "min_degree": -90,
         "max_degree": 90,
@@ -124,7 +124,7 @@
         ]
     },
     {
-        "id": 11,
+        "id": 9,
         "body_part": "right_shoulder_rotation_y",
         "min_degree": -90,
         "max_degree": 90,
@@ -138,7 +138,7 @@
         ]
     },
     {
-        "id": 16,
+        "id": 10,
         "body_part": "left_shoulder",
         "min_degree": -90,
         "max_degree": 90,
@@ -148,7 +148,7 @@
         "notes": []
     },
     {
-        "id": 17,
+        "id": 11,
         "body_part": "left_twist",
         "min_degree": -90,
         "max_degree": 90,
@@ -158,7 +158,7 @@
         "notes": []
     },
     {
-        "id": 18,
+        "id": 12,
         "body_part": "left_ring",
         "min_degree": -90,
         "max_degree": 90,
@@ -170,7 +170,7 @@
         ]
     },
     {
-        "id": 19,
+        "id": 13,
         "body_part": "left_middle",
         "min_degree": -90,
         "max_degree": 90,
@@ -180,7 +180,7 @@
         "notes": []
     },
     {
-        "id": 20,
+        "id": 14,
         "body_part": "left_index",
         "min_degree": 90,
         "max_degree": -90,
@@ -192,7 +192,7 @@
         ]
     },
     {
-        "id": 21,
+        "id": 15,
         "body_part": "left_thumb",
         "min_degree": -90,
         "max_degree": 90,
@@ -202,7 +202,7 @@
         "notes": []
     },
     {
-        "id": 21,
+        "id": 16,
         "body_part": "left_pinky",
         "min_degree": -90,
         "max_degree": 90,
@@ -212,7 +212,7 @@
         "notes": []
     },
     {
-        "id": 6,
+        "id": 17,
         "body_part": "left_wrist",
         "min_degree": -90,
         "max_degree": 90,
@@ -225,7 +225,7 @@
         ]
     },
     {
-        "id": 14,
+        "id": 18,
         "body_part": "head_y",
         "min_degree": -90,
         "max_degree": 90,
@@ -238,7 +238,7 @@
         ]
     },
     {
-        "id": 15,
+        "id": 19,
         "body_part": "head_x",
         "min_degree": -90,
         "max_degree": 90,
@@ -251,7 +251,7 @@
         ]
     },
     {
-        "id": 7,
+        "id": 20,
         "body_part": "jaw",
         "min_degree": -90,
         "max_degree": 90,
