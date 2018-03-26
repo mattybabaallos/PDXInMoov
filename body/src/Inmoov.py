@@ -29,6 +29,7 @@ def parse(obj):
         if obj["disabled"] is True:
             return
 
+    print obj["body_part"]
     servos.append(Servo(
         obj["id"],
         obj["min_pulse"],
@@ -38,7 +39,6 @@ def parse(obj):
         obj["default_angle"],
         obj["body_part"]
         ))
-
 
 class Inmoov(object):
     """
@@ -70,7 +70,7 @@ class Inmoov(object):
         )
         self.right_forearm = Forearm(self.right_hand,self.right_wrist)
         self.right_shoulder = Shoulder(
-            filter(lambda x: x.name == "right_shoulder_flexion" ,servos)[0])
+            filter(lambda x: x.name == "right_shoulder_flexion" ,servos)[0],
             filter(lambda x: x.name == "right_shoulder_abduction" ,servos)[0],
             filter(lambda x: x.name == "right_shoulder_rotation_x" ,servos)[0],
             filter(lambda x: x.name == "right_shoulder_rotation_y" ,servos)[0])
@@ -83,20 +83,21 @@ class Inmoov(object):
         self.left_hand = Hand(
             Finger(filter(lambda x: x.name == "left_pinky" ,servos)[0]),
             Finger(filter(lambda x: x.name == "left_ring" ,servos)[0]),
-            Finger(filter(lambda x: x.name == "left_mid" ,servos)[0]),
+            Finger(filter(lambda x: x.name == "left_middle" ,servos)[0]),
             Finger(filter(lambda x: x.name == "left_index" ,servos)[0]),
             Finger(filter(lambda x: x.name == "left_thumb" ,servos)[0])
         )
         self.left_forearm = Forearm(self.left_hand,self.left_wrist)
         self.left_shoulder = Shoulder(
-            filter(lambda x: x.name == "left_shoulder_flexion" ,servos)[0])
+            filter(lambda x: x.name == "left_shoulder_flexion" ,servos)[0],
             filter(lambda x: x.name == "left_shoulder_abduction" ,servos)[0],
             filter(lambda x: x.name == "left_shoulder_rotation_x" ,servos)[0],
             filter(lambda x: x.name == "left_shoulder_rotation_y" ,servos)[0])
 
         self.left_arm = Arm(self.left_forearm,self.left_shoulder)
 
-        self.initialize()
+      #  self.initialize()
+        self.wave()
 
     def do_motion(self, motion_id):
         """
@@ -111,9 +112,14 @@ class Inmoov(object):
 
 
     def wave(self):
-        self.left_arm.forearm.hand.straighten_all_fingers()
-        self.left_arm.shoulder.flex(60)
 
+        self.left_arm.shoulder.flex(90)
+        self.left_arm.shoulder.rotation_internal(60)
+	self.left_arm.shoulder.abduction_up(60)
+	time.sleep(0.5)
+        self.left_arm.shoulder.flex(0)
+	time.sleep(2)
+        self.left_arm.shoulder.flex(90)
     def thumbs_down(self):
         self.left_arm.forearm.hand.make_fist()
         time.sleep(1)
@@ -125,8 +131,10 @@ class Inmoov(object):
     def initialize(self):
         """initializes InMoov"""
         self.head.initialize()
+        time.sleep(1)
         self.left_arm.initialize()
-        self.right_arm.initialize()
+        time.sleep(1)
+        #self.right_arm.initialize()
 
     def off(self):
         """Turns InMoov off"""

@@ -14,7 +14,7 @@ class Shoulder(object):
 
     def __init__(self, flexion_servo, abduction_servo, rotation_servo_x,rotation_servo_y ):
         """ Build an Inmoov Shoulder """
-        if flexion_servo is None or abduction_servo is None or rotation_servo_x is None or rotation_servo_x is None:
+        if flexion_servo is None or abduction_servo is None or rotation_servo_x is None or rotation_servo_y is None:
             raise Exception("Could not initiate shoulder")
         self.flexion_servo = flexion_servo
         self.abduction_servo = abduction_servo

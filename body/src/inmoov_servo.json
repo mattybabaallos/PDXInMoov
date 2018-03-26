@@ -143,7 +143,7 @@
         "body_part": "left_shoulder_flexion",
         "min_degree": -90,
         "max_degree": 90,
-        "min_pulse": 220,
+        "min_pulse": 250,
         "max_pulse": 370,
         "default_angle": -90,
         "notes": [
@@ -164,7 +164,7 @@
         ]
     },
     {
-        "id": 8,
+        "id": 9,
         "body_part": "left_shoulder_rotation_x",
         "min_degree": -90,
         "max_degree": 90,
@@ -177,7 +177,7 @@
         ]
     },
     {
-        "id": 9,
+        "id": 8,
         "body_part": "left_shoulder_rotation_y",
         "min_degree": 90,
         "max_degree": -90,
@@ -191,7 +191,7 @@
         ]
     },
     {
-        "id": 12,
+        "id": 4,
         "body_part": "left_ring",
         "min_degree": -90,
         "max_degree": 90,
@@ -204,7 +204,7 @@
         ]
     },
     {
-        "id": 13,
+        "id": 3,
         "body_part": "left_middle",
         "min_degree": -90,
         "max_degree": 90,
@@ -217,7 +217,7 @@
         ]
     },
     {
-        "id": 14,
+        "id": 5,
         "body_part": "left_index",
         "min_degree": -90,
         "max_degree": 90,
@@ -230,7 +230,7 @@
         ]
     },
     {
-        "id": 15,
+        "id": 0,
         "body_part": "left_thumb",
         "min_degree": 90,
         "max_degree": -90,
@@ -244,12 +244,12 @@
         ]
     },
     {
-        "id": 16,
+        "id": 1,
         "body_part": "left_pinky",
         "min_degree": 90,
         "max_degree": -90,
         "min_pulse": 110,
-        "max_pulse": 460,
+        "max_pulse": 525,
         "default_angle": 90,
         "notes": [
             "default open, more negative is open",
@@ -258,7 +258,7 @@
         ]
     },
     {
-        "id": 17,
+        "id": 2,
         "body_part": "left_wrist",
         "min_degree": -90,
         "max_degree": 90,
@@ -318,7 +318,9 @@
         "min_pulse": 140,
         "max_pulse": 500,
         "default_angle": 0,
-        "notes": ["Both torso have to move at the same time","negative turns him left",""values Updated On:3/26/2018"]
+        "notes": ["Both torso have to move at the same time",
+			"negative turns him left"
+			,"values Updated On:3/26/2018"]
     },
     {
         "id": 22,

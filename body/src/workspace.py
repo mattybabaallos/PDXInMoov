@@ -9,8 +9,12 @@ from Inmoov import Inmoov
 from Shoulder import Shoulder as s
 from Servo import Servo
 
-servo = Servo(2,272,490,-90,90,"shoulder")
-servo.rotate(90)
+
+inmoov = Inmoov()
+
+
+##servo = Servo(8,306,471,90,-90,"shoulder")
+#servo.rotate(-90)
 #time.sleep(3)
 #servo.off()
 #c.off()
