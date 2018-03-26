@@ -318,7 +318,7 @@
         "min_pulse": 140,
         "max_pulse": 500,
         "default_angle": 0,
-        "notes": ["Both torso have to move at the same time","negative turns him left",""values Updated On:3/26/2018"]
+        "notes": ["Both torso have to move at the same time","negative turns him left","values Updated On:3/26/2018"]
     },
     {
         "id": 22,
