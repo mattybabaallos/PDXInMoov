@@ -12,13 +12,14 @@ from Servo import Servo
 class Shoulder(object):
     """ This class represents an Inmoov Shoulder """
 
-    def __init__(self, flexion_servo, abduction_servo, rotation_servo):
+    def __init__(self, flexion_servo, abduction_servo, rotation_servo_x,rotation_servo_y ):
         """ Build an Inmoov Shoulder """
-        if flexion_servo is None or abduction_servo is None or rotation_servo is None:
+        if flexion_servo is None or abduction_servo is None or rotation_servo_x is None or rotation_servo_x is None:
             raise Exception("Could not initiate shoulder")
         self.flexion_servo = flexion_servo
         self.abduction_servo = abduction_servo
-        self.rotation_servo = rotation_servo
+        self.rotation_servo_x = rotation_servo_x
+        self.rotation_servo_y = rotation_servo_y
 
     def initialize(self):
         """
@@ -26,7 +27,8 @@ class Shoulder(object):
         """
         self.flexion_servo.initialize()
         self.abduction_servo.initialize()
-        self.rotation_servo.initialize()
+        self.rotation_servo_x.initialize()
+        self.rotation_servo_y.initialize()
 
     def flex(self, degree):
         self.flexion_servo.rotate(degree)
@@ -41,10 +43,16 @@ class Shoulder(object):
         self.abduction_servo.rotate(degree)
 
     def rotation_internal(self, degree):
-        self.rotation_servo.rotate(degree)
+        self.rotation_servo_y.rotate(degree)
 
     def rotation_external(self, degree):
-        self.rotation_servo.rotate(degree)
+        self.rotation_servo_y.rotate(degree)
+
+    def rotation_up(self, degree):
+        self.rotation_servo_x.rotate(degree)
+
+    def rotation_down(self, degree):
+        self.rotation_servo_x.rotate(degree)
 
     def off(self):
         self.rotation_servo.off()
