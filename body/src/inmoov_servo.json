@@ -86,31 +86,6 @@
         ]
     },
     {
-        "id": 6,
-        "body_part": "left_wrist",
-        "min_degree": -90,
-        "max_degree": 90,
-        "min_pulse": 200,
-        "max_pulse": 400,
-        "default_angle": 90,
-        "notes": [
-            "Positive makes wrist clockwise",
-            "NOTE: Makes noise"
-        ]
-    },
-    {
-        "id": 7,
-        "body_part": "jaw",
-        "min_degree": -90,
-        "max_degree": 90,
-        "min_pulse": 360,
-        "max_pulse": 450,
-        "default_angle": -90,
-        "notes": [
-            "default position closed"
-        ]
-    },
-    {
         "id": 9,
         "body_part": "right_shoulder_flexion",
         "min_degree": -90,
@@ -160,30 +135,6 @@
             "rotate arm around itself",
             "Flipped",
             "values Updated On:3/26/2018"
-        ]
-    },
-    {
-        "id": 14,
-        "body_part": "head_y",
-        "min_degree": -90,
-        "max_degree": 90,
-        "min_pulse": 200,
-        "max_pulse": 525,
-        "default_angle": -90,
-        "notes": [
-            "default position down"
-        ]
-    },
-    {
-        "id": 15,
-        "body_part": "head_x",
-        "min_degree": -90,
-        "max_degree": 90,
-        "min_pulse": 200,
-        "max_pulse": 500,
-        "default_angle": -90,
-        "notes": [
-            "default position down"
         ]
     },
     {
@@ -259,5 +210,57 @@
         "max_pulse": 490,
         "default_angle": 90,
         "notes": []
+    },
+    {
+        "id": 6,
+        "body_part": "left_wrist",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 200,
+        "max_pulse": 400,
+        "default_angle": 90,
+        "notes": [
+            "Positive makes wrist clockwise",
+            "NOTE: Makes noise"
+        ]
+    },
+    {
+        "id": 14,
+        "body_part": "head_y",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 200,
+        "max_pulse": 500,
+        "default_angle": 0,
+        "notes": [
+            "default looks forward",
+            "values Updated On:3/26/2018"
+        ]
+    },
+    {
+        "id": 15,
+        "body_part": "head_x",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 200,
+        "max_pulse": 500,
+        "default_angle": 0,
+        "notes": [
+            "default center, looks forward",
+            "values Updated On:3/26/2018"
+        ]
+    },
+    {
+        "id": 7,
+        "body_part": "jaw",
+        "min_degree": -90,
+        "max_degree": 90,
+        "min_pulse": 360,
+        "max_pulse": 460,
+        "default_angle": -90,
+        "notes": [
+            "default position closed",
+            "values Updated On:3/26/2018"
+        ]
     }
 ]
