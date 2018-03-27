@@ -108,6 +108,8 @@ class Inmoov(object):
                 self.wave()
         elif motion_id == 1:
                 self.point()
+		time.sleep(5)
+		self.wave()
         elif motion_id == 2:
                 self.initialize()
 
@@ -115,13 +117,11 @@ class Inmoov(object):
     def wave(self):
 	self.left_arm.forearm.hand.off()
 	self.left_arm.shoulder.rotation_up(-20)
-        self.left_arm.shoulder.flex(90)
         self.left_arm.shoulder.rotation_internal(60)
 	self.left_arm.shoulder.abduction_up(-90)
 	time.sleep(2)
 	self.left_arm.shoulder.abduction_up(60)
 	time.sleep(0.5)
-        self.left_arm.shoulder.flex(-90)
 	time.sleep(2)
 	self.left_arm.shoulder.abduction_up(90)
 	time.sleep(1.5)
@@ -129,20 +129,21 @@ class Inmoov(object):
 	time.sleep(2)
 	self.left_arm.shoulder.abduction_up(90)
 	time.sleep(1.5)
-	self.leftt_arm.shoulder.abduction_up(0)
+	self.left_arm.shoulder.abduction_up(0)
 
 	self.left_arm.shoulder.rotation_up(-20)
         self.left_arm.shoulder.flex(90)
         self.left_arm.shoulder.rotation_internal(60)
 	
     def point(self):
-	self.right_arm.shoulder.rotation_up(-20)
-        self.right_arm.shoulder.flex(-90)
-        self.right_arm.shoulder.rotation_internal(60)
+	self.left_arm.shoulder.rotation_up(-20)
+        self.left_arm.shoulder.rotation_internal(60)
         time.sleep(3)
 
-        self.right_arm.shoulder.rotation_internal(-60)
-        self.right_arm.shoulder.rotation_up(60)
+        self.left_arm.shoulder.rotation_internal(90)
+        self.left_arm.forearm.hand.make_fist()
+        self.left_arm.shoulder.rotation_up(60)
+        self.left_arm.forearm.hand.straighten_all_fingers()
     def thumbs_down(self):
         pass
     def goodbye(self):
