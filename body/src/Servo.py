@@ -59,8 +59,10 @@ class Servo(object):
     def rotate(self, degree):
         """ Rotate to the specified degrees """
         try:
+            #print(degree)
             pulse = self.degrees_to_pulse(degree)
             print "current pulse", pulse
+            print "channel", self.channel
             set_pwm(self.shield_id,self.channel, 0, pulse)
         except ValueError as exception:
             print(exception)
@@ -68,7 +70,9 @@ class Servo(object):
 
     def initialize(self):
         """ Move servo to defult position """
+        print(self.default_angle)
         self.rotate(self.default_angle)
+        #print(self._id)
 
     def off(self):
         """ Rotate to the specified degrees """
@@ -103,29 +107,29 @@ class Servo(object):
     def min_pulse(self, value):
         """ Don't allow negative min_pulse value """
         if value >= 0:
-            self.min_pulse = value
+            self._min_pulse = value
         else:
             raise ValueError('Servo min_pulse must be >= 0')
 
     @min_pulse.getter
     def min_pulse(self):
-        return self.min_pulse
+        return self._min_pulse
 
     @property
     def max_pulse(self):
-        return self.max_pulse
+        return self._max_pulse
 
     @max_pulse.setter
     def max_pulse(self, value):
         """ Don't allow negative/zero max_pulse value """
         if value > 0:
-            self.max_pulse = value
+            self._max_pulse = value
         else:
             raise ValueError('Servo max_pulse must be > 0')
 
     @max_pulse.getter
     def max_pulse(self):
-        return self.max_pulse
+        return self._max_pulse
 
     @property
     def min_degree(self):
@@ -136,16 +140,16 @@ class Servo(object):
         """ Only allow degree between -360 and 360 """
         if value is None:
             # Default value
-            self.min_degree = -90
+            self._min_degree = -90
         elif value >= -360 and value <= 360:
-            self.min_degree = value
+            self._min_degree = value
         else:
             raise ValueError(
                 'Servo min_degree must be between -360 and 360 inclusive')
 
     @min_degree.getter
     def min_degree(self):
-        return self.min_degree
+        return self._min_degree
 
     @property
     def max_degree(self):
@@ -157,21 +161,21 @@ class Servo(object):
 
         if value is None:
             # Default value
-            self.max_degree = 90
+            self._max_degree = 90
         elif value >= -360 and value <= 360:
-            self.max_degree = value
+            self._max_degree = value
         else:
             raise ValueError(
                 'Servo max_degree must be between -360 and 360 inclusive')
 
     @max_degree.getter
     def max_degree(self):
-        return self.max_degree
+        return self._max_degree
 
-    @property
-    def default_angle(self):
-        return self.default_angle
+#    @property
+ #   def default_angle(self):
+  #      return self.default_angle
 
-    @default_angle.getter
-    def default_angle(self):
-        return self.default_angle
+  #  @default_angle.getter
+   # def default_angle(self):
+    #    return self._default_angle
