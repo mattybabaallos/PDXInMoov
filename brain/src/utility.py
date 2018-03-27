@@ -1,3 +1,6 @@
+# Original code examples from https://www.superdatascience.com/opencv-face-detection/
+# and https://www.superdatascience.com/opencv-face-recognition/
+
 import sys
 #import OpenCV module
 import cv2

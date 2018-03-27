@@ -1,3 +1,6 @@
+# Original code examples from https://www.superdatascience.com/opencv-face-detection/
+# and https://www.superdatascience.com/opencv-face-recognition/
+
 from utility import *
 import sys
 #import OpenCV module
@@ -9,12 +12,6 @@ import os
 import numpy as np
 
 def train_on_faces(trained_filename, training_object):
-
-
-  # Now that we have initialized our face recognizer and we also have prepared our training data, it's time to train the face recognizer. We will do that by calling the `train(faces-vector, labels-vector)` method of face recognizer. 
-
-  # In[7]:
-
   #train our face recognizer of our training faces
   training_object.train(faces, np.array(labels))
   training_object.write(trained_filename);
@@ -26,7 +23,6 @@ def train_on_faces(trained_filename, training_object):
 # of faces and another list of labels for each face
 def prepare_training_data(data_folder_path):
     
-    #------STEP-1--------
     #get the directories (one directory for each subject) in data folder
     dirs = os.listdir(data_folder_path)
     
@@ -43,7 +39,6 @@ def prepare_training_data(data_folder_path):
         if not dir_name.startswith("s"):
             continue;
             
-        #------STEP-2--------
         #extract label number of subject from dir_name
         #format of dir name = slabel
         #, so removing letter 's' from dir_name will give us label
@@ -56,7 +51,6 @@ def prepare_training_data(data_folder_path):
         #get the images names that are inside the given subject directory
         subject_images_names = os.listdir(subject_dir_path)
         
-        #------STEP-3--------
         #go through each image name, read image, 
         #detect face and add face to list of faces
         for image_name in subject_images_names:
@@ -79,7 +73,6 @@ def prepare_training_data(data_folder_path):
             #detect face
             face, rect = detect_face(image)
             
-            #------STEP-4--------
             #for the purpose of this tutorial
             #we will ignore faces that are not detected
             if face is not None:

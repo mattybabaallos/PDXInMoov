@@ -71,6 +71,7 @@ def predict(test_img):
 
     return img, label_text, label
 
+# Assign specific motions to specific people.
 def action(person):
     if person == "Max Schweitzer":
       action = 0
@@ -91,6 +92,7 @@ def action(person):
 
 class brain:
    def __init__(self):
+       # Subscribe to the picam node to get images, also publish to the motion topic, to send motion information.
        self.pub = rospy.Publisher('motion', Int16, queue_size=10)
        self.subscriber = rospy.Subscriber("/raspicam_node/image/compressed", CompressedImage, self.callback,  queue_size =1)
 
@@ -104,16 +106,15 @@ class brain:
        global blip
        rospy.loginfo("got an image")
        #call openCV work here
-       #frame = imutils.resize(msg.data, width=400, height=500)  
        previous_person = person
        frame_predict, person, label = predict(msg.data)
 
-  # draw the timestamp on the frame
+       # draw the timestamp on the frame
        timestamp = datetime.datetime.now()
        ts = timestamp.strftime("%A %d %B %Y %I:%M:%S%p")
        cv2.putText(frame_predict, ts, (10, frame_predict.shape[0] - 10), cv2.FONT_HERSHEY_SIMPLEX, 0.35, (0, 0, 255), 1)
 
-  # show the frame
+       # show the frame
        cv2.imshow('Feed', frame_predict)
        key = cv2.waitKey(1) & 0xFF
 
@@ -124,31 +125,18 @@ class brain:
          count = 0
          new = not new
 
-       #if ((person != previous_person) and (new == 1))
 
-       #print(person)
-       #print(previous_person)
        if (((new == 0) and (count >= 20))):
-         #result_file = open("../../result.txt", "w")
          result = action(person)
-         #result_file.write(str(result))
-         #result_file.close()
          print(result)
          count = 0
          new = 1
          self.pub.publish(result)
 
 
-       #this is 1 is the motion ID InMoov will do
-
 def main():
    rospy.init_node('brain', anonymous=True)
    b =brain()
-
-#print("Predicting images...")
-# initialize the video stream and allow the cammera sensor to warmup
-#vs = VideoStream(0).start()
-#time.sleep(2.0)
 
    try:
        rospy.spin()
