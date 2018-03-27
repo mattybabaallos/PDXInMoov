@@ -59,10 +59,7 @@ class Servo(object):
     def rotate(self, degree):
         """ Rotate to the specified degrees """
         try:
-            #print(degree)
             pulse = self.degrees_to_pulse(degree)
-            print "current pulse", pulse
-            print "channel", self.channel
             set_pwm(self.shield_id,self.channel, 0, pulse)
         except ValueError as exception:
             print(exception)
@@ -72,7 +69,6 @@ class Servo(object):
         """ Move servo to defult position """
         print(self.default_angle)
         self.rotate(self.default_angle)
-        #print(self._id)
 
     def off(self):
         """ Rotate to the specified degrees """
@@ -171,11 +167,3 @@ class Servo(object):
     @max_degree.getter
     def max_degree(self):
         return self._max_degree
-
-#    @property
- #   def default_angle(self):
-  #      return self.default_angle
-
-  #  @default_angle.getter
-   # def default_angle(self):
-    #    return self._default_angle
