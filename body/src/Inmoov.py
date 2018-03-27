@@ -29,7 +29,6 @@ def parse(obj):
         if obj["disabled"] is True:
             return
 
-    print obj["body_part"]
     servos.append(Servo(
         obj["id"],
         obj["min_pulse"],
@@ -96,46 +95,65 @@ class Inmoov(object):
 
         self.left_arm = Arm(self.left_forearm,self.left_shoulder)
 
-      #  self.initialize()
-        self.wave()
+        self.initialize()
+        # self.wave()
+
 
     def do_motion(self, motion_id):
         """
             Make InMoov do one of these motions
         """
+        print "motion_id", motion_id
         if motion_id == 0:
                 self.wave()
         elif motion_id == 1:
-                self.thumbs_down()
+                self.point()
+		time.sleep(5)
+		self.wave()
         elif motion_id == 2:
-                self.goodbye()
+                self.initialize()
 
 
     def wave(self):
-
-        self.left_arm.shoulder.flex(90)
+	self.left_arm.forearm.hand.off()
+	self.left_arm.shoulder.rotation_up(-20)
         self.left_arm.shoulder.rotation_internal(60)
+	self.left_arm.shoulder.abduction_up(-90)
+	time.sleep(2)
 	self.left_arm.shoulder.abduction_up(60)
 	time.sleep(0.5)
-        self.left_arm.shoulder.flex(0)
 	time.sleep(2)
+	self.left_arm.shoulder.abduction_up(90)
+	time.sleep(1.5)
+	self.left_arm.shoulder.abduction_up(0)
+	time.sleep(2)
+	self.left_arm.shoulder.abduction_up(90)
+	time.sleep(1.5)
+	self.left_arm.shoulder.abduction_up(0)
+
+	self.left_arm.shoulder.rotation_up(-20)
         self.left_arm.shoulder.flex(90)
-    def thumbs_down(self):
+        self.left_arm.shoulder.rotation_internal(60)
+	
+    def point(self):
+	self.left_arm.shoulder.rotation_up(-20)
+        self.left_arm.shoulder.rotation_internal(60)
+        time.sleep(3)
+
+        self.left_arm.shoulder.rotation_internal(90)
         self.left_arm.forearm.hand.make_fist()
-        time.sleep(1)
-        self.left_arm.forearm.hand.thumb.bend_max()
-        self.left_arm.forearm.wrist.rotate(60)
+        self.left_arm.shoulder.rotation_up(60)
+        self.left_arm.forearm.hand.straighten_all_fingers()
+    def thumbs_down(self):
+        pass
     def goodbye(self):
         pass
 
     def initialize(self):
         """initializes InMoov"""
         self.head.initialize()
-        time.sleep(1)
         self.left_arm.initialize()
-        time.sleep(1)
-        #self.right_arm.initialize()
-
+      #  self.right_arm.initialize()
     def off(self):
         """Turns InMoov off"""
         self.head.off()

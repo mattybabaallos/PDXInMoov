@@ -25,7 +25,6 @@ class Hand(object):
 
     def initialize(self):
         self.pinky_finger.initialize()
-	print "Pinky"
 	self.ring_finger.initialize()
         self.mid_finger.initialize()
         self.index_finger.initialize()
