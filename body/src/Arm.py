@@ -6,7 +6,7 @@ Authors:
     Brett Creeley
     Matty Baba Allos
 """
-
+import time
 
 class Arm(object):
     """
@@ -24,6 +24,7 @@ class Arm(object):
 
     def initialize(self):
         self.forearm.initialize()
+	time.sleep(1)	
         self.shoulder.initialize()
 
     def off(self):

@@ -7,13 +7,12 @@ from Inmoov import Inmoov
 inMoov = Inmoov()
 
 def callback(msg):
-    print("test")
     rospy.loginfo(msg.data)
     inMoov.do_motion(msg.data)
 
 def main():
     rospy.init_node("body")
-    rospy.Subscriber("motion", Int16, callback)
+    rospy.Subscriber("/motion", Int16, callback)
     rospy.spin()
 
 if __name__ == "__main__":
