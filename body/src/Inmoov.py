@@ -96,14 +96,12 @@ class Inmoov(object):
         self.left_arm = Arm(self.left_forearm,self.left_shoulder)
 
         self.initialize()
-        # self.wave()
 
 
     def do_motion(self, motion_id):
         """
             Make InMoov do one of these motions
         """
-        print "motion_id", motion_id
         if motion_id == 0:
                 self.wave()
         elif motion_id == 1:
@@ -134,7 +132,7 @@ class Inmoov(object):
 	self.left_arm.shoulder.rotation_up(-20)
         self.left_arm.shoulder.flex(90)
         self.left_arm.shoulder.rotation_internal(60)
-	
+
     def point(self):
 	self.left_arm.shoulder.rotation_up(-20)
         self.left_arm.shoulder.rotation_internal(60)
@@ -153,7 +151,6 @@ class Inmoov(object):
         """initializes InMoov"""
         self.head.initialize()
         self.left_arm.initialize()
-      #  self.right_arm.initialize()
     def off(self):
         """Turns InMoov off"""
         self.head.off()
